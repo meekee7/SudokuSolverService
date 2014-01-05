@@ -71,10 +71,7 @@ public class SudokuServer implements SudokuService {
             System.out.println("No port number specified, will use standard port 1337.");
 
         Collection<URL> urls = new LinkedList<>();
-        //URL url = null;
-//        URL local = null;
         try {                                         //Generate URLs for the service
-            //new URL[InetAddress.getAllByName(InetAddress.getLocalHost().getHostName()).length];
             for (Enumeration<NetworkInterface> interfaces = NetworkInterface.getNetworkInterfaces(); interfaces.hasMoreElements(); ) {
                 NetworkInterface ni = interfaces.nextElement();
                 for (Enumeration<InetAddress> adresses = ni.getInetAddresses(); adresses.hasMoreElements(); ) {
@@ -89,21 +86,9 @@ public class SudokuServer implements SudokuService {
                     System.out.println("Complete URL: " + url);
                 }
             }
-//            url = new URL("http", InetAddress.getLocalHost().getCanonicalHostName(), port, "/sudoku");
-//            local = new URL("http", "localhost", port, "/sudoku");
-
-//            System.out.println();                     //Output of implicated configuration
-//            System.out.println("Server configuration is: ");
-//            System.out.println("Host name: " + InetAddress.getLocalHost().getCanonicalHostName());
-//            System.out.println("Port: " + port);
-//            System.out.println("IP Address: " + InetAddress.getLocalHost().getHostAddress());
-//            System.out.println("Server complete URL is: " + url);
         } catch (MalformedURLException e) {
             System.err.println("Error: could not create server configuration.");
             System.exit(1);
-//        } catch (UnknownHostException e) {
-//            System.err.println("Error: could not determine network configuration data.");
-//            System.exit(1);
         } catch (SocketException e) {
             System.err.println("Error: couldn not access network interfaces.");
         }
@@ -115,8 +100,6 @@ public class SudokuServer implements SudokuService {
         for (URL url : urls)
             endpoints[i++] = Endpoint.publish(url.toString(), server);
 
-        //final Endpoint endpointnetw = Endpoint.publish(url.toString(), server);
-        //final Endpoint endpointloho = Endpoint.publish(local.toString(), server);
         System.out.println();
         System.out.println("Sudoku web service started.");         //If errors occur around this, classes are not found
         System.out.println("Use Ctrl + C to stop the server.");    //Then make your that you have run the wsgen tool
@@ -130,8 +113,6 @@ public class SudokuServer implements SudokuService {
                 System.out.println("Server will shut down now.");
                 for (Endpoint ep : endpoints)
                     ep.stop();
-//                endpointnetw.stop();
-//                endpointloho.stop();
             }
         }));
     }

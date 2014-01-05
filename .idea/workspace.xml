@@ -7,7 +7,7 @@
     <bookmark url="file://$PROJECT_DIR$/src/SudokuClient/SudokuGUI.java" line="320" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4d16b414-0070-4c8f-a233-c717e7923e67" name="Default" comment="Server now trying to run on all available network interfaces&#10;">
+    <list default="true" id="4d16b414-0070-4c8f-a233-c717e7923e67" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/SudokuServer/SudokuServer.java" afterPath="$PROJECT_DIR$/src/SudokuServer/SudokuServer.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -117,7 +117,7 @@
       <file leaf-file-name="SudokuServer.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/SudokuServer/SudokuServer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="52" column="43" selection-start="1376" selection-end="1376" vertical-scroll-proportion="-0.7405498" vertical-offset="1399" max-vertical-offset="2860">
+            <state line="112" column="73" selection-start="4417" selection-end="4417" vertical-scroll-proportion="1.2563107" vertical-offset="1531" max-vertical-offset="2442">
               <folding />
             </state>
           </provider>
@@ -392,7 +392,7 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.SudokuServer">
+  <component name="RunManager" selected="Application.SudokuGUI">
     <configuration default="false" name="Abrakadabra" type="Application" factoryName="Application" temporary="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <option name="MAIN_CLASS_NAME" value="Abrakadabra" />
@@ -749,10 +749,10 @@
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Application.SudokuServer" />
-        <item index="1" class="java.lang.String" itemvalue="JUnit.SudokuTest" />
-        <item index="2" class="java.lang.String" itemvalue="Application.SudokuClient" />
-        <item index="3" class="java.lang.String" itemvalue="Application.SudokuGUI" />
+        <item index="0" class="java.lang.String" itemvalue="Application.SudokuGUI" />
+        <item index="1" class="java.lang.String" itemvalue="Application.SudokuServer" />
+        <item index="2" class="java.lang.String" itemvalue="JUnit.SudokuTest" />
+        <item index="3" class="java.lang.String" itemvalue="Application.SudokuClient" />
         <item index="4" class="java.lang.String" itemvalue="Application.Abrakadabra" />
       </list>
     </recent_temporary>
@@ -792,17 +792,21 @@
       <workItem from="1386103188392" duration="97000" />
       <workItem from="1388601473686" duration="1240000" />
       <workItem from="1388874150851" duration="171000" />
-      <workItem from="1388910783669" duration="5146000" />
+      <workItem from="1388910783669" duration="6043000" />
     </task>
     <task id="LOCAL-00001" summary="Server now trying to run on all available network interfaces">
       <created>1388917565018</created>
       <updated>1388917565018</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Server now trying to run on all available network interfaces&#10;corrected">
+      <created>1388920616186</created>
+      <updated>1388920616186</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="6654000" />
+    <option name="totallyTimeSpent" value="7551000" />
   </component>
   <component name="TodoView" selected-index="0">
     <todo-panel id="selected-file">
@@ -826,10 +830,10 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1594" height="1056" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Changes" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32937366" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32937366" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3286638" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -849,7 +853,7 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2981771" sideWeight="0.5967742" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.40172786" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.40172786" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="CDI" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Byte Code Viewer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" x="1923" y="-870" width="0" height="871" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
@@ -875,7 +879,8 @@
       <TodoPanelSettings />
     </option>
     <MESSAGE value="Server now trying to run on all available network interfaces" />
-    <option name="LAST_COMMIT_MESSAGE" value="Server now trying to run on all available network interfaces" />
+    <MESSAGE value="Server now trying to run on all available network interfaces&#10;corrected" />
+    <option name="LAST_COMMIT_MESSAGE" value="Server now trying to run on all available network interfaces&#10;corrected" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1157,7 +1162,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/SudokuServer/SudokuServer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="52" column="43" selection-start="1376" selection-end="1376" vertical-scroll-proportion="-0.7405498" vertical-offset="1399" max-vertical-offset="2860">
+        <state line="112" column="73" selection-start="4417" selection-end="4417" vertical-scroll-proportion="1.2563107" vertical-offset="1531" max-vertical-offset="2442">
           <folding />
         </state>
       </provider>
