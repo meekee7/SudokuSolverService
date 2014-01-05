@@ -7,7 +7,11 @@
     <bookmark url="file://$PROJECT_DIR$/src/SudokuClient/SudokuGUI.java" line="320" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4d16b414-0070-4c8f-a233-c717e7923e67" name="Default" comment="" />
+    <list default="true" id="4d16b414-0070-4c8f-a233-c717e7923e67" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/SudokuServer/SudokuServer.java" afterPath="$PROJECT_DIR$/src/SudokuServer/SudokuServer.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+    </list>
     <ignored path="WebService.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -105,7 +109,7 @@
       <file leaf-file-name="SudokuSolver.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/SudokuServer/SudokuSolver.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="293" column="21" selection-start="8806" selection-end="8806" vertical-scroll-proportion="0.0" vertical-offset="6446" max-vertical-offset="7304">
+            <state line="293" column="21" selection-start="8806" selection-end="8806" vertical-scroll-proportion="0.0" vertical-offset="2391" max-vertical-offset="7194">
               <folding />
             </state>
           </provider>
@@ -114,11 +118,17 @@
       <file leaf-file-name="SudokuServer.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/SudokuServer/SudokuServer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="86" column="99" selection-start="3095" selection-end="3095" vertical-scroll-proportion="0.67636985" vertical-offset="1321" max-vertical-offset="2310">
-              <folding>
-                <element signature="e#3674#4038#0" expanded="true" />
-                <element signature="e#4027#4028#0" expanded="true" />
-              </folding>
+            <state line="121" column="48" selection-start="5072" selection-end="5072" vertical-scroll-proportion="1.1628788" vertical-offset="1762" max-vertical-offset="2618">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SudokuTest.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/tests/SudokuTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="95" column="29" selection-start="3285" selection-end="3285" vertical-scroll-proportion="0.0" vertical-offset="1555" max-vertical-offset="2464">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -139,6 +149,9 @@
       <setting name="OPEN_NEW_TAB" value="false" />
     </FindUsagesManager>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
@@ -152,19 +165,19 @@
         <option value="$PROJECT_DIR$/src/SudokuCore/SudokuService.java" />
         <option value="$PROJECT_DIR$/src/SudokuCore/SudokuAccess.java" />
         <option value="$PROJECT_DIR$/src/SudokuClient/SudokuClient.java" />
-        <option value="$PROJECT_DIR$/src/SudokuServer/SudokuServer.java" />
         <option value="$PROJECT_DIR$/src/SudokuClient/SudokuGUI.java" />
         <option value="$USER_HOME$/Dropbox/TechGI4SoSe2013/Abgabe 2/Anmerkungen.txt" />
         <option value="$PROJECT_DIR$/src/SudokuCore/Sudoku.java" />
         <option value="$PROJECT_DIR$/src/Abrakadabra.java" />
         <option value="$PROJECT_DIR$/src/SudokuServer/SudokuSolver.java" />
+        <option value="$PROJECT_DIR$/src/SudokuServer/SudokuServer.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
-    <option name="width" value="1594" />
+    <option name="width" value="1936" />
     <option name="height" value="1056" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
@@ -201,7 +214,7 @@
       </profile-state>
     </entry>
   </component>
-  <component name="ProjectLevelVcsManager" settingsEditedManually="false">
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="true" id="Add" />
     <OptionsSetting value="true" id="Remove" />
     <OptionsSetting value="true" id="Checkout" />
@@ -229,6 +242,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -331,7 +345,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
     </panes>
   </component>
@@ -366,6 +379,8 @@
     <property name="GenerateAntBuildDialog.backupFiles" value="true" />
     <property name="options.searchVisible" value="true" />
     <property name="dynamic.classpath" value="false" />
+    <property name="LayoutCode.rearrangeEntriesJava" value="false" />
+    <property name="SearchEverywhereHistory" value="" />
   </component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.RecentsKey">
@@ -701,6 +716,12 @@
       <envs />
       <method />
     </configuration>
+    <configuration default="true" type="com.intellij.persistence.run.ConsoleRunConfigurationType" factoryName="Query Language Console">
+      <option name="VM_PARAMETERS" value="" />
+      <option name="USER_CFG_CLASS" />
+      <option name="CONTEXT_PROVIDER" />
+      <method />
+    </configuration>
     <configuration default="true" type="AndroidRunConfigurationType" factoryName="Android Application">
       <module name="" />
       <option name="ACTIVITY_CLASS" value="" />
@@ -720,12 +741,6 @@
       <option name="SHOW_LOGCAT_AUTOMATICALLY" value="true" />
       <method />
     </configuration>
-    <configuration default="true" type="com.intellij.persistence.run.ConsoleRunConfigurationType" factoryName="Query Language Console">
-      <option name="VM_PARAMETERS" value="" />
-      <option name="USER_CFG_CLASS" />
-      <option name="CONTEXT_PROVIDER" />
-      <method />
-    </configuration>
     <list size="5">
       <item index="0" class="java.lang.String" itemvalue="Application.Abrakadabra" />
       <item index="1" class="java.lang.String" itemvalue="Application.SudokuClient" />
@@ -736,8 +751,8 @@
     <recent_temporary>
       <list size="5">
         <item index="0" class="java.lang.String" itemvalue="Application.SudokuServer" />
-        <item index="1" class="java.lang.String" itemvalue="Application.SudokuClient" />
-        <item index="2" class="java.lang.String" itemvalue="JUnit.SudokuTest" />
+        <item index="1" class="java.lang.String" itemvalue="JUnit.SudokuTest" />
+        <item index="2" class="java.lang.String" itemvalue="Application.SudokuClient" />
         <item index="3" class="java.lang.String" itemvalue="Application.SudokuGUI" />
         <item index="4" class="java.lang.String" itemvalue="Application.Abrakadabra" />
       </list>
@@ -778,11 +793,12 @@
       <workItem from="1386103188392" duration="97000" />
       <workItem from="1388601473686" duration="1240000" />
       <workItem from="1388874150851" duration="171000" />
+      <workItem from="1388910783669" duration="2365000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1508000" />
+    <option name="totallyTimeSpent" value="3873000" />
   </component>
   <component name="TodoView" selected-index="0">
     <todo-panel id="selected-file">
@@ -805,30 +821,31 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1594" height="1056" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32937366" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3286638" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3286638" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2497332" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32937366" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3286638" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3997773" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32962137" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32962137" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32829374" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2497332" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24414062" sideWeight="0.5967742" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.40172786" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24387646" sideWeight="0.5967742" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.40172786" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="CDI" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Byte Code Viewer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" x="1923" y="-870" width="0" height="871" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
@@ -837,7 +854,6 @@
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32777777" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32962137" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="soapUI Navigator" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3997773" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
@@ -893,11 +909,50 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/SudokuServer/SudokuServer.java">
       <provider selected="true" editor-type-id="text-editor">
+        <state line="86" column="99" selection-start="3095" selection-end="3095" vertical-scroll-proportion="0.0" vertical-offset="1892" max-vertical-offset="2310">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/SudokuClient/SudokuClient.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="99" column="59" selection-start="3291" selection-end="3291" vertical-scroll-proportion="0.0" vertical-offset="2178" max-vertical-offset="4334">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/SudokuCore/SudokuAccess.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="47" column="90" selection-start="1501" selection-end="1501" vertical-scroll-proportion="0.0" vertical-offset="1034" max-vertical-offset="1562">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/SudokuCore/Sudoku.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="7" selection-start="179" selection-end="179" vertical-scroll-proportion="0.0" vertical-offset="198" max-vertical-offset="3718">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/SudokuCore/SudokuService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="26" selection-start="187" selection-end="187" vertical-scroll-proportion="0.0" vertical-offset="242" max-vertical-offset="946">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/SudokuServer/SudokuSolver.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="293" column="21" selection-start="8806" selection-end="8806" vertical-scroll-proportion="0.0" vertical-offset="6446" max-vertical-offset="7304">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/SudokuServer/SudokuServer.java">
+      <provider selected="true" editor-type-id="text-editor">
         <state line="94" column="57" selection-start="3675" selection-end="3675" vertical-scroll-proportion="0.0" vertical-offset="2068" max-vertical-offset="2310">
-          <folding>
-            <element signature="e#3674#4038#0" expanded="true" />
-            <element signature="e#4027#4028#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -939,10 +994,7 @@
     <entry file="file://$PROJECT_DIR$/src/SudokuServer/SudokuServer.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="94" column="57" selection-start="3675" selection-end="3675" vertical-scroll-proportion="0.0" vertical-offset="2068" max-vertical-offset="2486">
-          <folding>
-            <element signature="e#3674#4038#0" expanded="true" />
-            <element signature="e#4027#4028#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -991,10 +1043,7 @@
     <entry file="file://$PROJECT_DIR$/src/SudokuServer/SudokuServer.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="94" column="57" selection-start="3675" selection-end="3675" vertical-scroll-proportion="0.0" vertical-offset="2068" max-vertical-offset="2486">
-          <folding>
-            <element signature="e#3674#4038#0" expanded="true" />
-            <element signature="e#4027#4028#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1027,13 +1076,6 @@
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tests/SudokuTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="105" column="115" selection-start="3723" selection-end="3723" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/Dropbox/TechGI4SoSe2013/Abgabe 2/myWS/myWSServer/src/MyService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="9" column="18" selection-start="193" selection-end="209" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0" />
@@ -1055,13 +1097,6 @@
           <folding>
             <element signature="imports" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/SudokuServer/SudokuSolver.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="293" column="21" selection-start="8806" selection-end="8806" vertical-scroll-proportion="0.0" vertical-offset="1577" max-vertical-offset="7194">
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1100,13 +1135,24 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/SudokuServer/SudokuSolver.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="293" column="21" selection-start="8806" selection-end="8806" vertical-scroll-proportion="0.0" vertical-offset="1577" max-vertical-offset="7194">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/SudokuTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="95" column="29" selection-start="3285" selection-end="3285" vertical-scroll-proportion="0.0" vertical-offset="1555" max-vertical-offset="2464">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/SudokuServer/SudokuServer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="86" column="99" selection-start="3095" selection-end="3095" vertical-scroll-proportion="0.67636985" vertical-offset="1321" max-vertical-offset="2310">
-          <folding>
-            <element signature="e#3674#4038#0" expanded="true" />
-            <element signature="e#4027#4028#0" expanded="true" />
-          </folding>
+        <state line="121" column="48" selection-start="5072" selection-end="5072" vertical-scroll-proportion="1.1628788" vertical-offset="1762" max-vertical-offset="2618">
+          <folding />
         </state>
       </provider>
     </entry>
