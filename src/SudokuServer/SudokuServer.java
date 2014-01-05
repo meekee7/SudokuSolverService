@@ -5,10 +5,10 @@ import SudokuCore.SudokuService;
 
 import javax.jws.WebService;
 import javax.xml.ws.Endpoint;
-import java.net.InetAddress;
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.net.UnknownHostException;
+import java.net.*;
+import java.util.Collection;
+import java.util.Enumeration;
+import java.util.LinkedList;
 
 /**
  * Created with IntelliJ IDEA.
@@ -25,6 +25,7 @@ public class SudokuServer implements SudokuService {
      */
     @Override
     public Sudoku solveSudoku(Sudoku sudoku) {
+        System.out.println("Sudoku solution requested.");
         SudokuSolver solver = new SudokuSolver(sudoku);
         solver.solve();
         return solver;
@@ -38,6 +39,7 @@ public class SudokuServer implements SudokuService {
      */
     @Override
     public int validateSudoku(Sudoku sudoku) {
+        System.out.println("Sudoku validation requested.");
         return new SudokuSolver(sudoku).getStatus();
     }
 
@@ -48,6 +50,7 @@ public class SudokuServer implements SudokuService {
      */
     @Override
     public boolean ping() {
+        System.out.println("Ping requested.");
         return true;
     }
 
@@ -67,20 +70,24 @@ public class SudokuServer implements SudokuService {
         else
             System.out.println("No port number specified, will use standard port 1337.");
 
-        URL[] urls = null;
+        Collection<URL> urls = new LinkedList<>();
         //URL url = null;
 //        URL local = null;
         try {                                         //Generate URLs for the service
-            urls = new URL[InetAddress.getAllByName(InetAddress.getLocalHost().getHostName()).length];
-            for (int i = 0; i < urls.length; i++) {
-                InetAddress address = InetAddress.getAllByName(InetAddress.getLocalHost().getHostName())[i];
-                urls[i] = new URL("http", address.getCanonicalHostName(), port, "/sudoku");
-                System.out.println();
-                System.out.println("Network interface " + i);
-                System.out.println("Host name: " + address.getCanonicalHostName());
-                System.out.println("Port: " + port);
-                System.out.println("IP Address: " + address.getHostAddress());
-                System.out.println("Complete URL: " + urls[i]);
+            //new URL[InetAddress.getAllByName(InetAddress.getLocalHost().getHostName()).length];
+            for (Enumeration<NetworkInterface> interfaces = NetworkInterface.getNetworkInterfaces(); interfaces.hasMoreElements(); ) {
+                NetworkInterface ni = interfaces.nextElement();
+                for (Enumeration<InetAddress> adresses = ni.getInetAddresses(); adresses.hasMoreElements(); ) {
+                    InetAddress address = adresses.nextElement();
+                    URL url = new URL("http", address.getCanonicalHostName(), port, "/sudoku");
+                    urls.add(url);
+                    System.out.println();
+                    System.out.println("Network interface " + ni.getName());
+                    System.out.println("Host name: " + address.getCanonicalHostName());
+                    System.out.println("Port: " + port);
+                    System.out.println("IP Address: " + address.getHostAddress());
+                    System.out.println("Complete URL: " + url);
+                }
             }
 //            url = new URL("http", InetAddress.getLocalHost().getCanonicalHostName(), port, "/sudoku");
 //            local = new URL("http", "localhost", port, "/sudoku");
@@ -94,15 +101,19 @@ public class SudokuServer implements SudokuService {
         } catch (MalformedURLException e) {
             System.err.println("Error: could not create server configuration.");
             System.exit(1);
-        } catch (UnknownHostException e) {
-            System.err.println("Error: could not determine network configuration data.");
-            System.exit(1);
+//        } catch (UnknownHostException e) {
+//            System.err.println("Error: could not determine network configuration data.");
+//            System.exit(1);
+        } catch (SocketException e) {
+            System.err.println("Error: couldn not access network interfaces.");
         }
 
+
         SudokuServer server = new SudokuServer();                  //Start the service for the public host and localhost
-        final Endpoint[] endpoints = new Endpoint[urls.length];
-        for (int i = 0; i < urls.length; i++)
-            endpoints[i] = Endpoint.publish(urls[i].toString(), server);
+        final Endpoint[] endpoints = new Endpoint[urls.size()];
+        int i = 0;
+        for (URL url : urls)
+            endpoints[i++] = Endpoint.publish(url.toString(), server);
 
         //final Endpoint endpointnetw = Endpoint.publish(url.toString(), server);
         //final Endpoint endpointloho = Endpoint.publish(local.toString(), server);
