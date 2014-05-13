@@ -3,7 +3,7 @@ package SudokuClient;
 import SudokuCore.Sudoku;
 import SudokuCore.SudokuAccess;
 import SudokuCore.SudokuService;
-import com.sun.xml.internal.ws.wsdl.parser.InaccessibleWSDLException;
+import SudokuServer.SudokuServer;
 
 import javax.xml.bind.JAXBException;
 import javax.xml.namespace.QName;
@@ -19,6 +19,8 @@ import java.nio.file.Paths;
  * User: Michael
  */
 public class SudokuClient {
+    public static final String selfhosted = "selfhosted"; //Use this as the hostname when you want to use an anonymous internal server
+
     private SudokuService service;
 
     /**
@@ -29,7 +31,10 @@ public class SudokuClient {
      * @throws MalformedURLException Happens when the resulting URL is invalid.
      */
     public SudokuClient(String hostname, int port) throws MalformedURLException {
-        this.service = Service.create(new URL("http", hostname, port, "/sudoku"), new QName("http://SudokuServer/", "SudokuServerService")).getPort(SudokuService.class);
+        if (hostname.equals(SudokuClient.selfhosted))
+            this.service = new SudokuServer();
+        else
+            this.service = Service.create(new URL("http", hostname, port, "/sudoku"), new QName("http://SudokuServer/", "SudokuServerService")).getPort(SudokuService.class);
     }
 
     /**
@@ -60,7 +65,7 @@ public class SudokuClient {
     public boolean pingrequest() {
         try {
             return service.ping();
-        } catch (InaccessibleWSDLException e) {           //The ping fails when the server is not accessible
+        } catch (Exception e) {           //The ping fails when the server is not accessible
             return false;
         }
     }

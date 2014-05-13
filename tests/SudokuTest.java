@@ -76,17 +76,6 @@ public class SudokuTest {
     }
 
     @Test
-    public void testgetSquare() {
-        int[][] squares = new int[9][9];
-        for (int i = 1; i < 9; i++)
-            ;                              //TODO formal test
-        Sudoku sudoku = new Sudoku(easysudoku);
-
-//        for (int i = 1; i <= 9; i++)
-//            System.out.println(java.util.Arrays.toString(SudokuService.SudokuCore.SudokuCore.fieldtoint(sudoku.getSquare(i))));
-    }
-
-    @Test
     public void testsimple() {
         org.junit.Assert.assertEquals("Simplesudoku nicht korrekt gelöst", 0, new SudokuSolver(new Sudoku(simplesudoku)).solve());
     }

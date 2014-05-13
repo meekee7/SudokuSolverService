@@ -2,7 +2,6 @@ package SudokuClient;
 
 import SudokuCore.Sudoku;
 import SudokuCore.SudokuAccess;
-import com.sun.xml.internal.ws.wsdl.parser.InaccessibleWSDLException;
 
 import javax.swing.*;
 import javax.swing.filechooser.FileNameExtensionFilter;
@@ -12,8 +11,6 @@ import javax.swing.text.Document;
 import javax.swing.text.PlainDocument;
 import javax.xml.bind.JAXBException;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.net.MalformedURLException;
 
@@ -89,7 +86,7 @@ public class SudokuGUI extends JFrame {
         this.setSize(new Dimension(800, 500));
         this.setMinimumSize(new Dimension(500, 300));      //Basic window configuration
         this.setLocationRelativeTo(null);
-        this.setTitle("Sudokulöser Client 1.0");
+        this.setTitle("Sudokulöser Client 1.1");
 
         this.textgrid = new CustomTextfield[9][9];             //Set up text fields for the sudoku grid
         JPanel grid = new JPanel(new GridLayout(3, 3, 20, 20));
@@ -115,7 +112,7 @@ public class SudokuGUI extends JFrame {
         GridBagConstraints constraints = new GridBagConstraints();
         constraints.insets = new Insets(10, 5, 10, 5);
         constraints.anchor = GridBagConstraints.CENTER;
-        this.hostfield = new JTextField(20);
+        this.hostfield = new JTextField(SudokuClient.selfhosted, 20);
         this.portfield = new JTextField(5);
         constraints.gridx = 0;
         constraints.gridy = 0;
@@ -129,41 +126,11 @@ public class SudokuGUI extends JFrame {
         config.add(portfield, constraints);
 
         JButton pingbutton = new JButton("Ping");
-        pingbutton.addActionListener(new ActionListener() {
-            /**
-             * Called when the ping button is clicked, attemps a ping.
-             *
-             * @param e The event, unused.
-             */
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                SudokuGUI.this.ping();
-            }
-        });
+        pingbutton.addActionListener(e -> SudokuGUI.this.ping());
         JButton valibutton = new JButton("Validieren");
-        valibutton.addActionListener(new ActionListener() {
-            /**
-             * Called when the validation button is clicked, attempts a validation request.
-             *
-             * @param e The event, unused.
-             */
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                SudokuGUI.this.validator();
-            }
-        });
+        valibutton.addActionListener(e -> SudokuGUI.this.validator());
         JButton solvebutton = new JButton("Lösen");
-        solvebutton.addActionListener(new ActionListener() {
-            /**
-             * Called when the solve button is clicked, attemps a solve request.
-             *
-             * @param e The event, unused.
-             */
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                SudokuGUI.this.solve();
-            }
-        });
+        solvebutton.addActionListener(e -> SudokuGUI.this.solve());
 
         JPanel controls = new JPanel(new GridLayout(4, 1, 5, 5));
         controls.add(config);
@@ -180,75 +147,27 @@ public class SudokuGUI extends JFrame {
         JMenuBar menuBar = new JMenuBar();
         JMenu filemenu = new JMenu("Datei");        //Create the menu bar
         JMenuItem openitem = new JMenuItem("Datei öffnen");
-        openitem.addActionListener(new ActionListener() {
-            /**
-             * Calls a dialog to to load a sudoku.
-             *
-             * @param e The event, unused.
-             */
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                SudokuGUI.this.openfile();
-            }
-        });
+        openitem.addActionListener(e -> SudokuGUI.this.openfile());
         filemenu.add(openitem);
         JMenuItem saveitem = new JMenuItem("Datei speichern");
-        saveitem.addActionListener(new ActionListener() {
-            /**
-             * Calls a dialog to save the sudoku.
-             *
-             * @param e The event, unused.
-             */
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                SudokuGUI.this.savefile();
-            }
-        });
+        saveitem.addActionListener(e -> SudokuGUI.this.savefile());
         filemenu.add(saveitem);
         JMenuItem closeitem = new JMenuItem("Datei schließen");
-        closeitem.addActionListener(new ActionListener() {
-            /**
-             * Clears all values in the sudoku grid.
-             *
-             * @param e The event, unused.
-             */
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                if (JOptionPane.showConfirmDialog(SudokuGUI.this, "Möchten sie wirklich die Datei schließen?", "Datei schließen", JOptionPane.YES_NO_CANCEL_OPTION) == JOptionPane.YES_OPTION)
-                    for (CustomTextfield[] line : SudokuGUI.this.textgrid)
-                        for (CustomTextfield field : line)
-                            field.setText("");
-            }
+        closeitem.addActionListener(e -> {
+            if (JOptionPane.showConfirmDialog(SudokuGUI.this, "Möchten sie wirklich die Datei schließen?", "Datei schließen", JOptionPane.YES_NO_CANCEL_OPTION) == JOptionPane.YES_OPTION)
+                for (CustomTextfield[] line : SudokuGUI.this.textgrid)
+                    for (CustomTextfield field : line)
+                        field.setText("");
         });
         filemenu.add(closeitem);
         filemenu.addSeparator();
         JMenuItem quititem = new JMenuItem("Beenden");
-        quititem.addActionListener(new ActionListener() {
-            /**
-             * Closes the window and exits the program.
-             *
-             * @param e The event, unused.
-             */
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                SudokuGUI.this.dispose();
-            }
-        });
+        quititem.addActionListener(e -> SudokuGUI.this.dispose());
         filemenu.add(quititem);
         menuBar.add(filemenu);
         JMenu infomenu = new JMenu("Info");
         JMenuItem infoitem = new JMenuItem("Info");
-        infoitem.addActionListener(new ActionListener() {
-            /**
-             * Shows a little infobox.
-             *
-             * @param e The event, unused.
-             */
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                JOptionPane.showMessageDialog(SudokuGUI.this, "Dieses Programm wurde im Rahmen von TechGI4-2013 erstellt von: \n\nJonathan Seilkopf \nAndreas Getzin \nMichael Kürbis", "Info", JOptionPane.INFORMATION_MESSAGE);
-            }
-        });
+        infoitem.addActionListener(e -> JOptionPane.showMessageDialog(SudokuGUI.this, "Dieses Programm wurde im Rahmen von TechGI4-2013 erstellt von: \n\nJonathan Seilkopf \nAndreas Getzin \nMichael Kürbis", "Info", JOptionPane.INFORMATION_MESSAGE));
         infomenu.add(infoitem);
         menuBar.add(infomenu);
         this.setJMenuBar(menuBar);
@@ -342,14 +261,16 @@ public class SudokuGUI extends JFrame {
      */
     private SudokuClient makeClient() {
         try {                                          //Configuration information from GUI
-            return new SudokuClient(hostfield.getText(), Integer.parseInt(this.portfield.getText()));
+            String host = hostfield.getText();
+            int port = host.equals(SudokuClient.selfhosted) ? 0 : Integer.parseInt(this.portfield.getText());
+            return new SudokuClient(host, port);
         } catch (MalformedURLException e) {
             JOptionPane.showMessageDialog(this, "Bei dem aktuellen Vorgang ist ein Fehler aufgetreten. Die Hostname oder die Portangabe sind ungültig.", "Fehler", JOptionPane.ERROR_MESSAGE);
             return null;
         } catch (NumberFormatException e) {
             JOptionPane.showMessageDialog(this, "Bei dem aktuellen Vorgang ist ein Fehler aufgetreten. Die Portangabe ist ungültig.", "Fehler", JOptionPane.ERROR_MESSAGE);
             return null;
-        } catch (InaccessibleWSDLException e) {
+        } catch (Exception e) {
             JOptionPane.showMessageDialog(this, "Bei dem aktuellen Vorgang ist ein Fehler aufgetreten. Der Webservice ist nicht verfügbar.", "Fehler", JOptionPane.ERROR_MESSAGE);
             return null;
         }

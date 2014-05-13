@@ -104,16 +104,10 @@ public class SudokuServer implements SudokuService {
         System.out.println("Sudoku web service started.");         //If errors occur around this, classes are not found
         System.out.println("Use Ctrl + C to stop the server.");    //Then make your that you have run the wsgen tool
 
-        Runtime.getRuntime().addShutdownHook(new Thread(new Runnable() {
-            /**
-             * This method will stop the server when the program is terminating in a regular way.
-             */
-            @Override
-            public void run() {
-                System.out.println("Server will shut down now.");
-                for (Endpoint ep : endpoints)
-                    ep.stop();
-            }
+        Runtime.getRuntime().addShutdownHook(new Thread(() -> {
+            System.out.println("Server will shut down now.");
+            for (Endpoint ep : endpoints)
+                ep.stop();
         }));
     }
 }
