@@ -3,6 +3,8 @@ package SudokuServer;
 import SudokuCore.Sudoku;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -10,18 +12,7 @@ import java.util.List;
  * User: Michael
  */
 public class SudokuSolver extends Sudoku {
-    private static final List<Integer> empty = new ArrayList<>();
-    private static final List<Integer> all = new ArrayList<Integer>() {{
-        add(1);
-        add(2);
-        add(3);
-        add(4);
-        add(5);
-        add(6);
-        add(7);
-        add(8);
-        add(9);
-    }};
+    private static final List<Integer> all = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9);
 
     private class OptionField extends Field {
         private List<Integer> options;
@@ -44,7 +35,7 @@ public class SudokuSolver extends Sudoku {
             if (value == 0)
                 this.options = new ArrayList<>(all);
             else
-                this.options = empty;
+                this.options = Collections.emptyList();
         }
 
         /**
@@ -56,7 +47,7 @@ public class SudokuSolver extends Sudoku {
         @Override
         public void setValue(int value) throws IllegalArgumentException {
             super.setValue(value);
-            this.options = empty;
+            this.options = Collections.emptyList();
         }
 
         /**
@@ -100,7 +91,7 @@ public class SudokuSolver extends Sudoku {
         public boolean setonoption() {
             if (this.options.size() == 1) {
                 this.value = options.get(0);
-                this.options = empty;
+                this.options = Collections.emptyList();
                 return true;
             } else
                 return false;
@@ -226,15 +217,15 @@ public class SudokuSolver extends Sudoku {
      * @param counter The values to remove from the vector.
      */
     private static void setoptions(OptionField[] vector, List<Integer> counter) {
-        List<Integer> nvals = new ArrayList<>(9);
+        List<Integer> newvalues = new ArrayList<>(9);
         for (OptionField field : vector)
             for (int value : counter) {
                 int result = field.removeoption(value);
                 if (result != 0)
-                    nvals.add(result);
+                    newvalues.add(result);
             }
-        if (nvals.size() > 0)
-            setoptions(vector, nvals);
+        if (newvalues.size() > 0)
+            setoptions(vector, newvalues);
     }
 
     /**
