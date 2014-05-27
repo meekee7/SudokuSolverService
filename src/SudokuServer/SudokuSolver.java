@@ -32,10 +32,7 @@ public class SudokuSolver extends Sudoku {
          */
         public OptionField(int value) {
             super(value);
-            if (value == 0)
-                this.options = new ArrayList<>(all);
-            else
-                this.options = Collections.emptyList();
+            this.options = value == 0 ? new ArrayList<>(all) : Collections.emptyList();
         }
 
         /**
@@ -67,10 +64,7 @@ public class SudokuSolver extends Sudoku {
          */
         public int removeoption(Integer value) {
             this.options.remove(value);
-            if (this.setonoption())
-                return this.value;
-            else
-                return 0;
+            return this.setonoption() ? this.value : 0;
         }
 
         /**
@@ -90,13 +84,12 @@ public class SudokuSolver extends Sudoku {
          */
         public boolean setonoption() {
             if (this.options.size() == 1) {
-                this.value = options.get(0);
+                this.value = this.options.get(0);
                 this.options = Collections.emptyList();
                 return true;
             } else
                 return false;
         }
-
     }
 
     /**
