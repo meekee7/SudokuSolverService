@@ -72,9 +72,11 @@ public class SudokuServer implements SudokuService {
 
         Collection<URL> urls = new LinkedList<>();
         try {                                         //Generate URLs for the service
-            for (Enumeration<NetworkInterface> interfaces = NetworkInterface.getNetworkInterfaces(); interfaces.hasMoreElements(); ) {
+            Enumeration<NetworkInterface> interfaces = NetworkInterface.getNetworkInterfaces();
+            while (interfaces.hasMoreElements()) {
                 NetworkInterface ni = interfaces.nextElement();
-                for (Enumeration<InetAddress> adresses = ni.getInetAddresses(); adresses.hasMoreElements(); ) {
+                Enumeration<InetAddress> adresses = ni.getInetAddresses();
+                while (adresses.hasMoreElements()) {
                     InetAddress address = adresses.nextElement();
                     URL url = new URL("http", address.getCanonicalHostName(), port, "/sudoku");
                     urls.add(url);
