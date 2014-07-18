@@ -56,6 +56,29 @@ public class SudokuTest {
             {0, 1, 7, 3, 2, 0, 0, 0, 0},
     };
 
+    private static int[][] debug1sudoku = {
+            {8, 0, 0, 1, 3, 0, 0, 0, 4},
+            {0, 2, 0, 0, 0, 5, 0, 7, 0},
+            {0, 0, 7, 0, 0, 0, 6, 0, 0},
+            {0, 0, 1, 5, 0, 0, 0, 9, 2},
+            {0, 0, 0, 0, 0, 0, 0, 0, 0},
+            {4, 6, 0, 0, 0, 2, 3, 0, 0},
+            {0, 0, 3, 0, 0, 0, 2, 0, 0},
+            {0, 4, 0, 3, 0, 0, 0, 1, 0},
+            {6, 0, 0, 0, 1, 8, 0, 0, 9},
+    };
+
+    private static int[][] debug2sudoku = {
+            {4, 2, 6, 0, 0, 0, 0, 0, 8},
+            {8, 1, 7, 5, 0, 0, 0, 9, 0},
+            {9, 3, 5, 0, 2, 0, 4, 0, 0},
+            {0, 0, 1, 0, 0, 3, 0, 0, 0},
+            {2, 8, 0, 0, 0, 0, 0, 7, 3},
+            {0, 0, 0, 8, 0, 0, 5, 0, 0},
+            {7, 4, 2, 0, 1, 0, 6, 0, 0},
+            {5, 6, 8, 0, 0, 7, 0, 3, 0},
+            {1, 9, 3, 0, 0, 0, 0, 0, 5},
+    };
 
     @Test
     public void testgetLine() {
@@ -93,5 +116,15 @@ public class SudokuTest {
     @Test
     public void testhard() {
         org.junit.Assert.assertEquals("Hardsudoku nicht korrekt gelöst", 0, new SudokuSolver(new Sudoku(hardsudoku)).solve());
+    }
+
+    @Test
+    public void testdebug1() {
+        org.junit.Assert.assertEquals("Debug1 nicht korrekt gelöst", 0, new SudokuSolver(new Sudoku(debug1sudoku)).solve());
+    }
+
+    @Test
+    public void testdebug2() {
+        org.junit.Assert.assertEquals("Debug2 nicht korrekt gelöst", 0, new SudokuSolver(new Sudoku(debug2sudoku)).solve());
     }
 }

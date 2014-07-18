@@ -166,7 +166,7 @@ public class SudokuSolver extends Sudoku {
      */
     public int solve() {
         int prevopen = 81;
-        while (this.getStatus() < prevopen) {
+        while (this.getStatus() < prevopen && this.getStatus() != -1) {
             prevopen = this.getStatus();
             for (int i = 1; i <= 9; i++) {
                 OptionField[] square = this.getSquare(i);
@@ -245,8 +245,8 @@ public class SudokuSolver extends Sudoku {
             if (!field.setonoption())
                 for (Integer option : field.getOptions()) {
                     int count = 0;
-                    for (int i = 0; i < 9 && count <= 0; i++)
-                        if (vector[i] != field && vector[i].hasOption(option))
+                    for (int i = 0; i < 9 && count <= 0; i++) //That second or-condition is a hack to fix a glitch in testcase debug1. TODO why was the option there in first place?
+                        if (vector[i] != field && (vector[i].hasOption(option) || vector[i].getValue() == option))
                             count++;
                     if (count == 0) {
                         field.setValue(option);

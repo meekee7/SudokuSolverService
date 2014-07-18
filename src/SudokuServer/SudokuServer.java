@@ -55,7 +55,7 @@ public class SudokuServer implements SudokuService {
     }
 
     /**
-     * Main method to start the server from the command line. Run wsgen before starting.
+     * Main method to start the server from the command line.
      *
      * @param args The first optional argument is the port number to use, all other parameters are ignored.
      */
@@ -92,7 +92,7 @@ public class SudokuServer implements SudokuService {
             System.err.println("Error: could not create server configuration.");
             System.exit(1);
         } catch (SocketException e) {
-            System.err.println("Error: couldn not access network interfaces.");
+            System.err.println("Error: could not access network interfaces.");
         }
 
 
@@ -103,8 +103,8 @@ public class SudokuServer implements SudokuService {
             endpoints[i++] = Endpoint.publish(url.toString(), server);
 
         System.out.println();
-        System.out.println("Sudoku web service started.");         //If errors occur around this, classes are not found
-        System.out.println("Use Ctrl + C to stop the server.");    //Then make your that you have run the wsgen tool
+        System.out.println("Sudoku web service started.");
+        System.out.println("Use Ctrl + C to stop the server.");
 
         Runtime.getRuntime().addShutdownHook(new Thread(() -> {
             System.out.println("Server will shut down now.");
