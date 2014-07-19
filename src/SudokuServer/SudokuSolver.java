@@ -13,6 +13,7 @@ import java.util.List;
  */
 public class SudokuSolver extends Sudoku {
     private static final List<Integer> all = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9);
+    public static final int INVALID = -1;
 
     private class OptionField extends Field {
         private List<Integer> options;
@@ -166,7 +167,7 @@ public class SudokuSolver extends Sudoku {
      */
     public int solve() {
         int prevopen = 81;
-        while (this.getStatus() < prevopen && this.getStatus() != -1) {
+        while (this.getStatus() < prevopen && this.getStatus() != INVALID) {
             prevopen = this.getStatus();
             for (int i = 1; i <= 9; i++) {
                 OptionField[] square = this.getSquare(i);
@@ -187,11 +188,14 @@ public class SudokuSolver extends Sudoku {
      * Sets all options in the sudoku.
      */
     private void setalloptions() {
+        int state = this.getStatus();
         for (int i = 1; i <= 9; i++) {
             setoptions(this.getLine(i));
             setoptions(this.getColumn(i));
             setoptions(this.getSquare(i));
         }
+        if (state > this.getStatus())  //We gained significant new information
+            this.setalloptions(); //Set again
     }
 
     /**
@@ -245,8 +249,8 @@ public class SudokuSolver extends Sudoku {
             if (!field.setonoption())
                 for (Integer option : field.getOptions()) {
                     int count = 0;
-                    for (int i = 0; i < 9 && count <= 0; i++) //That second or-condition is a hack to fix a glitch in testcase debug1. TODO why was the option there in first place?
-                        if (vector[i] != field && (vector[i].hasOption(option) || vector[i].getValue() == option))
+                    for (int i = 0; i < 9 && count <= 0; i++)
+                        if (vector[i] != field && vector[i].hasOption(option))
                             count++;
                     if (count == 0) {
                         field.setValue(option);
@@ -282,8 +286,8 @@ public class SudokuSolver extends Sudoku {
             int square = isValid(this.getSquare(i));
             int column = isValid(this.getColumn(i));
             int line = isValid(this.getLine(i));
-            if (square == -1 || column == -1 || line == -1)
-                return -1;
+            if (square == INVALID || column == INVALID || line == INVALID)
+                return INVALID;
             else
                 result += square + column + line;
         }
@@ -304,7 +308,7 @@ public class SudokuSolver extends Sudoku {
             else
                 for (Field counter : vector)
                     if (field != counter && field.getValue() == counter.getValue())
-                        return -1;
+                        return INVALID;
         return result;
     }
 }
