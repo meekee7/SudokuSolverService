@@ -311,4 +311,49 @@ public class SudokuSolver extends Sudoku {
                         return INVALID;
         return result;
     }
+
+    public String toStringWithOptions() {
+        StringBuilder sb = new StringBuilder();
+        String strongbar = " = = = = = = = = = = = = = = = = = = = = = = = = = = =\n";
+        String weakbar = "‖ - - - - - - - - - - - - - - - - - - - - - - - - - - ‖\n";
+        sb.append(strongbar);
+        for (int i = 0; i < 9; i++) {
+            sb.append("‖ ");
+            for (int j = 0; j < 9; j++) {
+                for (int k = 1; k <= 3; k++)
+                    sb.append(fieldtochar((OptionField) this.grid[i][j], k));
+                sb.append((j + 1) % 3 != 0 ? " | " : " ‖ ");
+            }
+            sb.append("\n‖ ");
+            for (int j = 0; j < 9; j++) {
+                for (int k = 4; k <= 6; k++)
+                    sb.append(fieldtochar((OptionField) this.grid[i][j], k));
+                sb.append((j + 1) % 3 != 0 ? " | " : " ‖ ");
+            }
+            sb.append("\n‖ ");
+            for (int j = 0; j < 9; j++) {
+                for (int k = 7; k <= 9; k++)
+                    sb.append(fieldtochar((OptionField) this.grid[i][j], k));
+                sb.append((j + 1) % 3 != 0 ? " | " : " ‖ ");
+            }
+            sb.append('\n');
+            if ((i + 1) % 3 == 0)
+                sb.append(strongbar);
+            else
+                sb.append(weakbar);
+        }
+        return sb.toString();
+    }
+
+    private static char fieldtochar(OptionField field, int value) {
+        if (field.hasOption(value))
+            return (char) ('0' + value);
+        else if (field.getValue() != 0)
+            if (value != 5)
+                return '·';
+            else
+                return (char) ('0' + field.getValue());
+        else
+            return ' ';
+    }
 }
