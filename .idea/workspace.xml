@@ -4,7 +4,7 @@
     <option name="ANALYZE_TEST_SOURCES" value="false" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4d16b414-0070-4c8f-a233-c717e7923e67" name="Default" comment="Replaced workaround with fix">
+    <list default="true" id="4d16b414-0070-4c8f-a233-c717e7923e67" name="Default" comment="Added toString variant to SudokuSolver which also shows the options for each field">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/SudokuServer/SudokuSolver.java" afterPath="$PROJECT_DIR$/src/SudokuServer/SudokuSolver.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -97,8 +97,8 @@
       <file leaf-file-name="SudokuSolver.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/SudokuServer/SudokuSolver.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="1.4131455" vertical-offset="7545" max-vertical-offset="8760">
-              <caret line="352" column="25" selection-start-line="352" selection-start-column="25" selection-end-line="352" selection-end-column="25" />
+            <state vertical-scroll-proportion="0.75899845" vertical-offset="7435" max-vertical-offset="8448">
+              <caret line="330" column="60" selection-start-line="330" selection-start-column="9" selection-end-line="330" selection-end-column="9" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#1621#1622#0" expanded="true" />
@@ -827,7 +827,7 @@
       <workItem from="1404388855874" duration="114000" />
       <workItem from="1405681484965" duration="43000" />
       <workItem from="1405791847560" duration="28000" />
-      <workItem from="1405791899778" duration="10332000" />
+      <workItem from="1405791899778" duration="11154000" />
     </task>
     <task id="LOCAL-00001" summary="Server now trying to run on all available network interfaces">
       <created>1388917565018</created>
@@ -857,11 +857,15 @@
       <created>1405795079810</created>
       <updated>1405795079810</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Added toString variant to SudokuSolver which also shows the options for each field">
+      <created>1405806664807</created>
+      <updated>1405806664807</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="36852000" />
+    <option name="totallyTimeSpent" value="37674000" />
   </component>
   <component name="TodoView" selected-index="0">
     <todo-panel id="selected-file">
@@ -977,7 +981,8 @@
     <MESSAGE value="Cleanup" />
     <MESSAGE value="Refactoring" />
     <MESSAGE value="Replaced workaround with fix" />
-    <option name="LAST_COMMIT_MESSAGE" value="Replaced workaround with fix" />
+    <MESSAGE value="Added toString variant to SudokuSolver which also shows the options for each field" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added toString variant to SudokuSolver which also shows the options for each field" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
@@ -1421,8 +1426,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/SudokuServer/SudokuSolver.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.4131455" vertical-offset="7545" max-vertical-offset="8760">
-          <caret line="352" column="25" selection-start-line="352" selection-start-column="25" selection-end-line="352" selection-end-column="25" />
+        <state vertical-scroll-proportion="0.75899845" vertical-offset="7435" max-vertical-offset="8448">
+          <caret line="330" column="60" selection-start-line="330" selection-start-column="9" selection-end-line="330" selection-end-column="9" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#1621#1622#0" expanded="true" />
