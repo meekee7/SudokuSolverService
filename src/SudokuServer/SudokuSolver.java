@@ -312,6 +312,12 @@ public class SudokuSolver extends Sudoku {
         return result;
     }
 
+    /**
+     * This method creates a string representing the sudoku and showing the options for open fields.
+     * If a field is filled, then its value surrounded by ·-symbols.
+     *
+     * @return A string representing the sudoku and showing the options for open fields.
+     */
     public String toStringWithOptions() {
         StringBuilder sb = new StringBuilder();
         String strongbar = " = = = = = = = = = = = = = = = = = = = = = = = = = = =\n";
@@ -319,19 +325,26 @@ public class SudokuSolver extends Sudoku {
         sb.append(strongbar);
         for (int i = 0; i < 9; i++) {
             sb.append("‖ ");
-            for (int l = 0; l < 9; l += 3) {
+            for (int l = 0; l < 3; l++) {
                 for (int j = 0; j < 9; j++) {
                     for (int k = 1; k <= 3; k++)
-                        sb.append(fieldtochar((OptionField) this.grid[i][j], k + l));
+                        sb.append(fieldtochar((OptionField) this.grid[i][j], k + l * 3));
                     sb.append((j + 1) % 3 != 0 ? " | " : " ‖ ");
                 }
-                sb.append(l == 6 ? '\n' : "\n‖ ");
+                sb.append(l == 2 ? '\n' : "\n‖ ");
             }
             sb.append((i + 1) % 3 == 0 ? strongbar : weakbar);
         }
         return sb.toString();
     }
 
+    /**
+     * This method finds the char that is appropriate for a field in toStringWithOptions.
+     *
+     * @param field The field to convert.
+     * @param value The value against which the field is checked.
+     * @return The appropriate char for the field.
+     */
     private static char fieldtochar(OptionField field, int value) {
         if (field.hasOption(value))
             return (char) ('0' + value);

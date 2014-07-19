@@ -4,7 +4,7 @@
     <option name="ANALYZE_TEST_SOURCES" value="false" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4d16b414-0070-4c8f-a233-c717e7923e67" name="Default" comment="Added toString variant to SudokuSolver which also shows the options for each field">
+    <list default="true" id="4d16b414-0070-4c8f-a233-c717e7923e67" name="Default" comment="Refactoring of new toString-method">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/SudokuServer/SudokuSolver.java" afterPath="$PROJECT_DIR$/src/SudokuServer/SudokuSolver.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -97,8 +97,8 @@
       <file leaf-file-name="SudokuSolver.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/SudokuServer/SudokuSolver.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.75899845" vertical-offset="7435" max-vertical-offset="8448">
-              <caret line="330" column="60" selection-start-line="330" selection-start-column="9" selection-end-line="330" selection-end-column="9" />
+            <state vertical-scroll-proportion="1.0866426" vertical-offset="7990" max-vertical-offset="8760">
+              <caret line="358" column="50" selection-start-line="358" selection-start-column="1" selection-end-line="358" selection-end-column="1" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#1621#1622#0" expanded="true" />
@@ -827,7 +827,7 @@
       <workItem from="1404388855874" duration="114000" />
       <workItem from="1405681484965" duration="43000" />
       <workItem from="1405791847560" duration="28000" />
-      <workItem from="1405791899778" duration="11154000" />
+      <workItem from="1405791899778" duration="12004000" />
     </task>
     <task id="LOCAL-00001" summary="Server now trying to run on all available network interfaces">
       <created>1388917565018</created>
@@ -861,11 +861,15 @@
       <created>1405806664807</created>
       <updated>1405806664807</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Refactoring of new toString-method">
+      <created>1405807481221</created>
+      <updated>1405807481221</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="37674000" />
+    <option name="totallyTimeSpent" value="38524000" />
   </component>
   <component name="TodoView" selected-index="0">
     <todo-panel id="selected-file">
@@ -892,7 +896,7 @@
     <editor active="true" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32937366" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32900432" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3286638" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -912,7 +916,7 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.12153518" sideWeight="0.5967742" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.27813852" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.37012988" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="CDI" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Byte Code Viewer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" x="1923" y="-870" width="0" height="871" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
@@ -982,7 +986,8 @@
     <MESSAGE value="Refactoring" />
     <MESSAGE value="Replaced workaround with fix" />
     <MESSAGE value="Added toString variant to SudokuSolver which also shows the options for each field" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added toString variant to SudokuSolver which also shows the options for each field" />
+    <MESSAGE value="Refactoring of new toString-method" />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactoring of new toString-method" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
@@ -1426,8 +1431,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/SudokuServer/SudokuSolver.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.75899845" vertical-offset="7435" max-vertical-offset="8448">
-          <caret line="330" column="60" selection-start-line="330" selection-start-column="9" selection-end-line="330" selection-end-column="9" />
+        <state vertical-scroll-proportion="1.0866426" vertical-offset="7990" max-vertical-offset="8760">
+          <caret line="358" column="50" selection-start-line="358" selection-start-column="1" selection-end-line="358" selection-end-column="1" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#1621#1622#0" expanded="true" />
