@@ -272,84 +272,41 @@ public class SudokuSolver extends Sudoku {
     }
 
     private void pointingpair(int i, boolean linecolumn) {
-
+        OptionField[] vector;
+        if (linecolumn)
+            vector = this.getLine(i + 1);
+        else
+            vector = this.getColumn(i + 1);
+        for (int j = 0; j < 8; j++) {
+            OptionField field = vector[j];
+            for (int option1 : field.getOptions())
+                for (int k = j + 1; k < 9; k++) {
+                    OptionField partner = vector[k];
+                    if (j / 3 == k / 3 && field != partner && partner.hasOption(option1))
+                        for (int option2 : field.getOptions())
+                            if (option1 != option2 && partner.hasOption(option2)) {
+                                boolean onlypair = true;
+                                for (OptionField element : vector)
+                                    onlypair &= (!element.hasOption(option1) && !element.hasOption(option2)) || element == field || element == partner;
+                                if (onlypair) {
+                                    for (OptionField element : linecolumn ? this.getHouse(i + 1, j + 1) : this.getHouse(j + 1, i + 1))
+                                        if (element != field && element != partner) {
+                                            element.removeoption(option1);
+                                            element.removeoption(option2);
+                                        }
+                                    field.getOptions().stream().filter(element -> element != option1 && element != option2).forEach(field::removeoption);
+                                    partner.getOptions().stream().filter(element -> element != option1 && element != option2).forEach(partner::removeoption);
+                                    this.solve();
+                                }
+                            }
+                }
+        }
     }
 
     public void pointingpair() {
         for (int i = 0; i < 9; i++) {
-            OptionField[] line = this.getLine(i + 1);
-            for (int j = 0; j < 8; j++) {
-                OptionField field = line[j];
-                for (int option1 : field.getOptions())
-                    for (int k = j + 1; k < 9; k++) {
-                        OptionField partner = line[k];
-                        if (j / 3 == k / 3 && field != partner && partner.hasOption(option1)) {
-                            for (int option2 : field.getOptions())
-                                if (option1 != option2 && partner.hasOption(option2)) {
-                                    boolean onlypair = true;
-                                    for (OptionField element : line)
-                                        onlypair &= (!element.hasOption(option1) && !element.hasOption(option2)) || element == field || element == partner;
-                                    if (onlypair) {
-                                        System.out.println(i + " " + j + " " + k + " " + option1 + " " + option2);
-                                        System.out.println(this.toStringWithOptions());
-                                        for (OptionField element : this.getHouse(i + 1, j + 1)) {
-                                            if (element != field && element != partner) {
-                                                element.removeoption(option1);
-                                                element.removeoption(option2);
-                                            }
-                                        }
-                                        for (int element : field.getOptions())
-                                            if (element != option1 && element != option2)
-                                                field.removeoption(element);
-                                        for (int element : partner.getOptions())
-                                            if (element != option1 && element != option2)
-                                                partner.removeoption(element);
-                                        System.out.println(this.getStatus());
-                                        System.out.println(this.toStringWithOptions());
-                                        this.solve();
-                                    }
-                                }
-                        }
-                    }
-            }
-        }
-        for (int i = 0; i < 9; i++) {
-            OptionField[] column = this.getColumn(i + 1);
-            for (int j = 0; j < 8; j++) {
-                OptionField field = column[j];
-                for (int option1 : field.getOptions())
-                    for (int k = j + 1; k < 9; k++) {
-                        OptionField partner = column[k];
-                        if (j / 3 == k / 3 && field != partner && partner.hasOption(option1)) {
-                            for (int option2 : field.getOptions())
-                                if (option1 != option2 && partner.hasOption(option2)) {
-                                    boolean onlypair = true;
-                                    for (OptionField element : column)
-                                        onlypair &= (!element.hasOption(option1) && !element.hasOption(option2)) || element == field || element == partner;
-                                    if (onlypair) {
-                                        System.out.println("type two");
-                                        System.out.println(i + " " + j + " " + k + " " + option1 + " " + option2);
-                                        System.out.println(this.toStringWithOptions());
-                                        for (OptionField element : this.getHouse(j + 1, i + 1)) {
-                                            if (element != field && element != partner) {
-                                                element.removeoption(option1);
-                                                element.removeoption(option2);
-                                            }
-                                        }
-                                        for (int element : field.getOptions())
-                                            if (element != option1 && element != option2)
-                                                field.removeoption(element);
-                                        for (int element : partner.getOptions())
-                                            if (element != option1 && element != option2)
-                                                partner.removeoption(element);
-                                        System.out.println(this.getStatus());
-                                        System.out.println(this.toStringWithOptions());
-                                        this.solve();
-                                    }
-                                }
-                        }
-                    }
-            }
+            this.pointingpair(i, true);
+            this.pointingpair(i, false);
         }
     }
 

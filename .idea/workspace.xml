@@ -4,8 +4,7 @@
     <option name="ANALYZE_TEST_SOURCES" value="false" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4d16b414-0070-4c8f-a233-c717e7923e67" name="Default" comment="Documentation">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/SudokuClient/SudokuGUI.java" afterPath="$PROJECT_DIR$/src/SudokuClient/SudokuGUI.java" />
+    <list default="true" id="4d16b414-0070-4c8f-a233-c717e7923e67" name="Default" comment="pointingpair">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/SudokuServer/SudokuSolver.java" afterPath="$PROJECT_DIR$/src/SudokuServer/SudokuSolver.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -78,8 +77,8 @@
       <file leaf-file-name="SudokuSolver.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/SudokuServer/SudokuSolver.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.64444447" vertical-offset="6372" max-vertical-offset="10992">
-              <caret line="280" column="12" selection-start-line="280" selection-start-column="12" selection-end-line="280" selection-end-column="12" />
+            <state vertical-scroll-proportion="-0.2" vertical-offset="7212" max-vertical-offset="9960">
+              <caret line="296" column="58" selection-start-line="296" selection-start-column="58" selection-end-line="296" selection-end-column="58" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#1682#1683#0" expanded="true" />
@@ -127,7 +126,7 @@
         <entry file="file://$PROJECT_DIR$/src/Abrakadabra.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0" vertical-offset="1895" max-vertical-offset="2544">
-              <caret line="90" column="81" selection-start-line="90" selection-start-column="81" selection-end-line="90" selection-end-column="81" />
+              <caret line="90" column="80" selection-start-line="90" selection-start-column="80" selection-end-line="90" selection-end-column="80" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -148,7 +147,7 @@
       <file leaf-file-name="SudokuGUI.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/SudokuClient/SudokuGUI.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="2483" max-vertical-offset="7416">
+            <state vertical-scroll-proportion="0.0" vertical-offset="1944" max-vertical-offset="7416">
               <caret line="95" column="58" selection-start-line="95" selection-start-column="58" selection-end-line="95" selection-end-column="58" />
               <folding />
             </state>
@@ -814,7 +813,7 @@
       <workItem from="1404388855874" duration="114000" />
       <workItem from="1405681484965" duration="43000" />
       <workItem from="1405791847560" duration="28000" />
-      <workItem from="1405791899778" duration="32894000" />
+      <workItem from="1405791899778" duration="33866000" />
     </task>
     <task id="LOCAL-00001" summary="Server now trying to run on all available network interfaces">
       <created>1388917565018</created>
@@ -856,11 +855,15 @@
       <created>1405808311246</created>
       <updated>1405808311246</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="pointingpair">
+      <created>1405882235989</created>
+      <updated>1405882235989</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="59414000" />
+    <option name="totallyTimeSpent" value="60386000" />
   </component>
   <component name="TodoView" selected-index="0">
     <todo-panel id="selected-file">
@@ -979,7 +982,8 @@
     <MESSAGE value="Added toString variant to SudokuSolver which also shows the options for each field" />
     <MESSAGE value="Refactoring of new toString-method" />
     <MESSAGE value="Documentation" />
-    <option name="LAST_COMMIT_MESSAGE" value="Documentation" />
+    <MESSAGE value="pointingpair" />
+    <option name="LAST_COMMIT_MESSAGE" value="pointingpair" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
@@ -993,14 +997,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/tests/SudokuTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1805" max-vertical-offset="2166">
-          <caret line="95" column="29" selection-start-line="95" selection-start-column="29" selection-end-line="95" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/SudokuClient/SudokuClient.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="1881" max-vertical-offset="3743">
@@ -1358,11 +1354,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/todo debug 2.bmp">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/SudokuServer/SudokuServer.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="504" max-vertical-offset="2712">
@@ -1414,17 +1405,27 @@
     <entry file="file://$PROJECT_DIR$/src/Abrakadabra.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="1895" max-vertical-offset="2544">
-          <caret line="90" column="81" selection-start-line="90" selection-start-column="81" selection-end-line="90" selection-end-column="81" />
+          <caret line="90" column="80" selection-start-line="90" selection-start-column="80" selection-end-line="90" selection-end-column="80" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/todo debug.bmp">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/todo debug 2.bmp">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/SudokuServer/SudokuSolver.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.64444447" vertical-offset="6372" max-vertical-offset="10992">
-          <caret line="280" column="12" selection-start-line="280" selection-start-column="12" selection-end-line="280" selection-end-column="12" />
+        <state vertical-scroll-proportion="-0.2" vertical-offset="7212" max-vertical-offset="9960">
+          <caret line="296" column="58" selection-start-line="296" selection-start-column="58" selection-end-line="296" selection-end-column="58" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#1682#1683#0" expanded="true" />
