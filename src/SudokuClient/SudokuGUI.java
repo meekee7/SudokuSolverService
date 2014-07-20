@@ -90,9 +90,9 @@ public class SudokuGUI extends JFrame {
 
         this.textgrid = new CustomTextfield[9][9];             //Set up text fields for the sudoku grid
         JPanel grid = new JPanel(new GridLayout(3, 3, 20, 20));
-        JPanel[] squares = new JPanel[9];
+        JPanel[] houses = new JPanel[9];
         for (int i = 0; i < 9; i++) {
-            squares[i] = new JPanel(new GridLayout(3, 3, 10, 10));
+            houses[i] = new JPanel(new GridLayout(3, 3, 10, 10));
             int a = ((i / 3) + 1) * 3 - 2;                      //Both functions were found by poking around
             int b = ((i + 1) % 3 == 0 ? 3 : (i + 1) % 3) * 3 - 2;
             for (int j = -1; j <= 1; j++)
@@ -101,9 +101,9 @@ public class SudokuGUI extends JFrame {
                     textfield.setHorizontalAlignment(JTextField.CENTER);
                     textfield.setFont(new Font(textfield.getFont().getFontName(), textfield.getFont().getStyle(), 24));
                     this.textgrid[a + j][b + k] = textfield;
-                    squares[i].add(textfield);
+                    houses[i].add(textfield);
                 }
-            grid.add(squares[i]);
+            grid.add(houses[i]);
         }
         grid.setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
         grid.setMinimumSize(new Dimension(300, 480));
@@ -261,7 +261,7 @@ public class SudokuGUI extends JFrame {
      */
     private SudokuClient makeClient() {
         try {                                          //Configuration information from GUI
-            String host = hostfield.getText();
+            String host = this.hostfield.getText();
             int port = host.equals(SudokuClient.selfhosted) ? 0 : Integer.parseInt(this.portfield.getText());
             return new SudokuClient(host, port);
         } catch (MalformedURLException e) {

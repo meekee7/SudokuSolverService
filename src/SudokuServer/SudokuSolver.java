@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+import java.util.concurrent.CopyOnWriteArrayList;
 
 /**
  * Created with IntelliJ IDEA.
@@ -33,7 +34,7 @@ public class SudokuSolver extends Sudoku {
          */
         public OptionField(int value) {
             super(value);
-            this.options = value == 0 ? new ArrayList<>(all) : Collections.emptyList();
+            this.options = value == 0 ? new CopyOnWriteArrayList<>(all) : Collections.emptyList();
         }
 
         /**
@@ -132,12 +133,12 @@ public class SudokuSolver extends Sudoku {
     }
 
     /**
-     * Getter for a square of the sudoku.
+     * Getter for a house of the sudoku.
      *
-     * @param index Which square to take.
-     * @return The square of the sudoku.
+     * @param index Which house to take.
+     * @return The house of the sudoku.
      */
-    public OptionField[] getSquare(int index) {
+    public OptionField[] getHouse(int index) {
         testindexvalidity(index);
         OptionField[] result = new OptionField[9];
         int i = 0;
@@ -147,6 +148,14 @@ public class SudokuSolver extends Sudoku {
             for (int k = -1; k <= 1; k++)
                 result[i++] = (OptionField) this.grid[a + j][b + k];
         return result;
+    }
+
+    public OptionField[] getHouse(int x, int y) {
+        testindexvalidity(x);
+        testindexvalidity(y);
+        x = (x + 2) / 3;
+        y = (y + 2) / 3;
+        return this.getHouse((x - 1) * 3 + y);
     }
 
     /**
@@ -170,15 +179,16 @@ public class SudokuSolver extends Sudoku {
         while (this.getStatus() < prevopen && this.getStatus() != INVALID) {
             prevopen = this.getStatus();
             for (int i = 1; i <= 9; i++) {
-                OptionField[] square = this.getSquare(i);
+                OptionField[] house = this.getHouse(i);
                 OptionField[] column = this.getColumn(i);
                 OptionField[] line = this.getLine(i);
                 this.setalloptions();
-                solvevector(square);
+                solvevector(house);
                 this.setalloptions();
                 solvevector(column);
                 this.setalloptions();
                 solvevector(line);
+                this.setalloptions();
             }
         }
         return prevopen;
@@ -192,7 +202,7 @@ public class SudokuSolver extends Sudoku {
         for (int i = 1; i <= 9; i++) {
             setoptions(this.getLine(i));
             setoptions(this.getColumn(i));
-            setoptions(this.getSquare(i));
+            setoptions(this.getHouse(i));
         }
         if (state > this.getStatus())  //We gained significant new information
             this.setalloptions(); //Set again
@@ -261,11 +271,94 @@ public class SudokuSolver extends Sudoku {
                 setoptions(vector);
     }
 
+    private void pointingpair(int i, boolean linecolumn) {
+
+    }
+
+    public void pointingpair() {
+        for (int i = 0; i < 9; i++) {
+            OptionField[] line = this.getLine(i + 1);
+            for (int j = 0; j < 8; j++) {
+                OptionField field = line[j];
+                for (int option1 : field.getOptions())
+                    for (int k = j + 1; k < 9; k++) {
+                        OptionField partner = line[k];
+                        if (j / 3 == k / 3 && field != partner && partner.hasOption(option1)) {
+                            for (int option2 : field.getOptions())
+                                if (option1 != option2 && partner.hasOption(option2)) {
+                                    boolean onlypair = true;
+                                    for (OptionField element : line)
+                                        onlypair &= (!element.hasOption(option1) && !element.hasOption(option2)) || element == field || element == partner;
+                                    if (onlypair) {
+                                        System.out.println(i + " " + j + " " + k + " " + option1 + " " + option2);
+                                        System.out.println(this.toStringWithOptions());
+                                        for (OptionField element : this.getHouse(i + 1, j + 1)) {
+                                            if (element != field && element != partner) {
+                                                element.removeoption(option1);
+                                                element.removeoption(option2);
+                                            }
+                                        }
+                                        for (int element : field.getOptions())
+                                            if (element != option1 && element != option2)
+                                                field.removeoption(element);
+                                        for (int element : partner.getOptions())
+                                            if (element != option1 && element != option2)
+                                                partner.removeoption(element);
+                                        System.out.println(this.getStatus());
+                                        System.out.println(this.toStringWithOptions());
+                                        this.solve();
+                                    }
+                                }
+                        }
+                    }
+            }
+        }
+        for (int i = 0; i < 9; i++) {
+            OptionField[] column = this.getColumn(i + 1);
+            for (int j = 0; j < 8; j++) {
+                OptionField field = column[j];
+                for (int option1 : field.getOptions())
+                    for (int k = j + 1; k < 9; k++) {
+                        OptionField partner = column[k];
+                        if (j / 3 == k / 3 && field != partner && partner.hasOption(option1)) {
+                            for (int option2 : field.getOptions())
+                                if (option1 != option2 && partner.hasOption(option2)) {
+                                    boolean onlypair = true;
+                                    for (OptionField element : column)
+                                        onlypair &= (!element.hasOption(option1) && !element.hasOption(option2)) || element == field || element == partner;
+                                    if (onlypair) {
+                                        System.out.println("type two");
+                                        System.out.println(i + " " + j + " " + k + " " + option1 + " " + option2);
+                                        System.out.println(this.toStringWithOptions());
+                                        for (OptionField element : this.getHouse(j + 1, i + 1)) {
+                                            if (element != field && element != partner) {
+                                                element.removeoption(option1);
+                                                element.removeoption(option2);
+                                            }
+                                        }
+                                        for (int element : field.getOptions())
+                                            if (element != option1 && element != option2)
+                                                field.removeoption(element);
+                                        for (int element : partner.getOptions())
+                                            if (element != option1 && element != option2)
+                                                partner.removeoption(element);
+                                        System.out.println(this.getStatus());
+                                        System.out.println(this.toStringWithOptions());
+                                        this.solve();
+                                    }
+                                }
+                        }
+                    }
+            }
+        }
+    }
+
     /**
      * Counts the number of all options in the sudoku.
      *
      * @return The amount of options in the sudoku.
      */
+
     public int countoptions() {
         int options = 0;
         OptionField[][] grid = (OptionField[][]) this.grid;
@@ -283,13 +376,13 @@ public class SudokuSolver extends Sudoku {
     public int getStatus() {
         int result = 0;
         for (int i = 1; i <= 9; i++) {
-            int square = isValid(this.getSquare(i));
+            int house = isValid(this.getHouse(i));
             int column = isValid(this.getColumn(i));
             int line = isValid(this.getLine(i));
-            if (square == INVALID || column == INVALID || line == INVALID)
+            if (house == INVALID || column == INVALID || line == INVALID)
                 return INVALID;
             else
-                result += square + column + line;
+                result += house + column + line;
         }
         return result / 3;    //Each empty field is counted multiple times by each vector test.
     }
@@ -320,15 +413,15 @@ public class SudokuSolver extends Sudoku {
      */
     public String toStringWithOptions() {
         StringBuilder sb = new StringBuilder();
-        String strongbar = " = = = = = = = = = = = = = = = = = = = = = = = = = = =\n";
+        String strongbar = " = = = = = = = = = = = = = = = = = = = = = = = = = = = \n";
         String weakbar = "‖ - - - - - - - - - - - - - - - - - - - - - - - - - - ‖\n";
         sb.append(strongbar);
         for (int i = 0; i < 9; i++) {
             sb.append("‖ ");
             for (int l = 0; l < 3; l++) {
                 for (int j = 0; j < 9; j++) {
-                    for (int k = 1; k <= 3; k++)
-                        sb.append(fieldtochar((OptionField) this.grid[i][j], k + l * 3));
+                    for (int c = 1; c <= 3; c++)
+                        sb.append(fieldtochar((OptionField) this.grid[i][j], c + l * 3));
                     sb.append((j + 1) % 3 != 0 ? " | " : " ‖ ");
                 }
                 sb.append(l == 2 ? '\n' : "\n‖ ");
@@ -341,15 +434,15 @@ public class SudokuSolver extends Sudoku {
     /**
      * This method finds the char that is appropriate for a field in toStringWithOptions.
      *
-     * @param field The field to convert.
-     * @param value The value against which the field is checked.
+     * @param field  The field to convert.
+     * @param option The value against which the field is checked.
      * @return The appropriate char for the field.
      */
-    private static char fieldtochar(OptionField field, int value) {
-        if (field.hasOption(value))
-            return (char) ('0' + value);
+    private static char fieldtochar(OptionField field, int option) {
+        if (field.hasOption(option))
+            return (char) ('0' + option);
         else if (field.getValue() != 0)
-            if (value != 5)
+            if (option != 5)
                 return '·';
             else
                 return (char) ('0' + field.getValue());
