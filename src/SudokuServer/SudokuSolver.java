@@ -169,12 +169,24 @@ public class SudokuSolver extends Sudoku {
             throw new IllegalArgumentException("Index has to be between 1 and 9, inclusive, was: " + index);
     }
 
+
+    public int solve() {
+        int prevopen = 81;
+        while (this.getStatus() < prevopen && this.getStatus() != INVALID) {
+            prevopen = this.getStatus();
+            this.solvesimple();
+            if (this.getStatus() > 0)
+                this.pointingpair();
+        }
+        return prevopen;
+    }
+
     /**
      * Solve a sudoku.
      *
      * @return -1 if wrong, 0 if completely solved, the number of open fields if incompletely solved.
      */
-    public int solve() {
+    public int solvesimple() {
         int prevopen = 81;
         while (this.getStatus() < prevopen && this.getStatus() != INVALID) {
             prevopen = this.getStatus();
@@ -296,7 +308,7 @@ public class SudokuSolver extends Sudoku {
                                         }
                                     field.getOptions().stream().filter(element -> element != option1 && element != option2).forEach(field::removeoption);
                                     partner.getOptions().stream().filter(element -> element != option1 && element != option2).forEach(partner::removeoption);
-                                    this.solve();
+                                    this.solvesimple();
                                 }
                             }
                 }
