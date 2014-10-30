@@ -283,6 +283,12 @@ public class SudokuSolver extends Sudoku {
                 setoptions(vector);
     }
 
+    /**
+     * Resolves all pointing pairs for a line or a column.
+     *
+     * @param i          The identifier of the line or column.
+     * @param linecolumn true if the function is used for a line, false if the function is used for a column.
+     */
     private void pointingpair(int i, boolean linecolumn) {
         OptionField[] vector;
         if (linecolumn)
@@ -315,6 +321,9 @@ public class SudokuSolver extends Sudoku {
         }
     }
 
+    /**
+     * Pointing pair resolution for all lines and colums.
+     */
     public void pointingpair() {
         for (int i = 0; i < 9; i++) {
             this.pointingpair(i, true);
