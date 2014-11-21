@@ -179,7 +179,7 @@ public class SudokuSolver extends Sudoku {
      * @return 0 if solved, -1 if there is no solution
      */
     public int solve() {
-        if (this.solvelogically() < 0)
+        if (this.getStatus() < 0)
             return -1;
         Stack<SudokuSolver> stack = new Stack<>();
         stack.push(this);

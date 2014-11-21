@@ -10,6 +10,15 @@ import javax.jws.WebService;
 @WebService
 public interface SudokuService {
     /**
+     * Solves a sudoku, but also uses backtracking.
+     *
+     * @param sudoku THe sudoku to solve.
+     * @return The solved sudoku.
+     */
+    @WebMethod
+    public Sudoku solveSudokuGuessing(Sudoku sudoku);
+
+    /**
      * Solves a sudoku.
      *
      * @param sudoku The sudoku to solve.

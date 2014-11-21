@@ -16,6 +16,19 @@ import java.util.HashSet;
  */
 @WebService(endpointInterface = "SudokuCore.SudokuService")
 public class SudokuServer implements SudokuService {
+    /**
+     * Solves a sudoku, but also uses backtracking.
+     *
+     * @param sudoku The sudoku to solve.
+     * @return The solved sudoku.
+     */
+    @Override
+    public Sudoku solveSudokuGuessing(Sudoku sudoku) {
+        System.out.println("Sudoku solution requested.");
+        SudokuSolver solver = new SudokuSolver(sudoku);
+        solver.solve();
+        return solver;
+    }
 
     /**
      * Solves a sudoku.
@@ -27,7 +40,7 @@ public class SudokuServer implements SudokuService {
     public Sudoku solveSudoku(Sudoku sudoku) {
         System.out.println("Sudoku solution requested.");
         SudokuSolver solver = new SudokuSolver(sudoku);
-        solver.solve();
+        solver.solvelogically();
         return solver;
     }
 

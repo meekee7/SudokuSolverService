@@ -77,6 +77,7 @@ public class SudokuGUI extends JFrame {
     private final CustomTextfield[][] textgrid;
     private final JTextField hostfield;
     private final JTextField portfield;
+    private final JCheckBox btfield;
 
     /**
      * Constructor creating the complete GUI.
@@ -125,15 +126,22 @@ public class SudokuGUI extends JFrame {
         constraints.gridx = 1;
         config.add(portfield, constraints);
 
+        this.btfield = new JCheckBox("Backtracking verwenden", true);
         JButton pingbutton = new JButton("Ping");
         pingbutton.addActionListener(e -> SudokuGUI.this.ping());
         JButton valibutton = new JButton("Validieren");
         valibutton.addActionListener(e -> SudokuGUI.this.validator());
         JButton solvebutton = new JButton("Lösen");
-        solvebutton.addActionListener(e -> SudokuGUI.this.solve());
+        solvebutton.addActionListener(e -> {
+            if (SudokuGUI.this.btfield.isSelected())
+                SudokuGUI.this.solveguessing();
+            else
+                SudokuGUI.this.solve();
+        });
 
-        JPanel controls = new JPanel(new GridLayout(4, 1, 5, 5));
+        JPanel controls = new JPanel(new GridLayout(5, 1, 5, 5));
         controls.add(config);
+        controls.add(this.btfield);
         controls.add(pingbutton);
         controls.add(valibutton);
         controls.add(solvebutton);
@@ -274,6 +282,16 @@ public class SudokuGUI extends JFrame {
             JOptionPane.showMessageDialog(this, "Bei dem aktuellen Vorgang ist ein Fehler aufgetreten. Der Webservice ist nicht verfügbar.", "Fehler", JOptionPane.ERROR_MESSAGE);
             return null;
         }
+    }
+
+    /**
+     * Attempts a solve request to the service.
+     */
+    private void solveguessing() {
+        SudokuClient client = this.makeClient();
+        if (client == null)
+            return;
+        this.setData(client.solverguessingrequest(this.getData()));
     }
 
     /**

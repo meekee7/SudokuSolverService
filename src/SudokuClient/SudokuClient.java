@@ -14,14 +14,15 @@ import java.net.URL;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
-/**                                  1
+/**
+ * 1
  * Created with IntelliJ IDEA.
  * User: Michael
  */
 public class SudokuClient {
     public static final String selfhosted = "selfhosted"; //Use this as the hostname when you want to use an anonymous internal server
 
-    private SudokuService service;
+    private final SudokuService service;
 
     /**
      * Constructor creating a new client for the service.
@@ -35,6 +36,16 @@ public class SudokuClient {
             this.service = new SudokuServer();
         else
             this.service = Service.create(new URL("http", hostname, port, "/sudoku"), new QName("http://SudokuServer/", "SudokuServerService")).getPort(SudokuService.class);
+    }
+
+    /**
+     * Proposes a request to resolve a sudoku with backtracking
+     *
+     * @param sudoku The sudoku to solve.
+     * @return The solved sudoku.
+     */
+    public Sudoku solverguessingrequest(Sudoku sudoku) {
+        return service.solveSudokuGuessing(sudoku);
     }
 
     /**
@@ -79,9 +90,12 @@ public class SudokuClient {
         String hostname = null;
         int port = 0;
         Path sudokufile = null, outputfile = null;
-        boolean solveoption = false, statusoption = false, ping = false;
+        boolean solvebt = false, solveoption = false, statusoption = false, ping = false;
         for (int i = 0; i < args.length; i++)                         //Parse the arguments from the command line
             switch (args[i]) {
+                case "-solvebt":
+                    solvebt = true;
+                    break;
                 case "-solve":
                     solveoption = true;
                     break;
@@ -178,6 +192,20 @@ public class SudokuClient {
         }
 
         if (solveoption) {
+            sudoku = client.solverguessingrequest(sudoku);
+            if (outputfile != null)
+                try {
+                    SudokuAccess.writeSudoku(outputfile, sudoku);
+                } catch (JAXBException e) {
+                    System.err.println("Error: could not write data.");
+                    e.printStackTrace();
+                } catch (IOException e) {
+                    System.err.println("Error: could not save file.");
+                    e.printStackTrace();
+                }
+            else
+                System.out.println(sudoku);
+        } else if (solveoption) {
             sudoku = client.solverequest(sudoku);
             if (outputfile != null)
                 try {
