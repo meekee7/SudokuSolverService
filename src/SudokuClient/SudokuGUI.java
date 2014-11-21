@@ -86,7 +86,7 @@ public class SudokuGUI extends JFrame {
         this.setSize(new Dimension(800, 500));
         this.setMinimumSize(new Dimension(500, 300));      //Basic window configuration
         this.setLocationRelativeTo(null);
-        this.setTitle("Sudokulöser Client 1.1");
+        this.setTitle("Sudokulöser Client 1.2");
 
         this.textgrid = new CustomTextfield[9][9];             //Set up text fields for the sudoku grid
         JPanel grid = new JPanel(new GridLayout(3, 3, 20, 20));
@@ -167,7 +167,7 @@ public class SudokuGUI extends JFrame {
         menuBar.add(filemenu);
         JMenu infomenu = new JMenu("Info");
         JMenuItem infoitem = new JMenuItem("Info");
-        infoitem.addActionListener(e -> JOptionPane.showMessageDialog(SudokuGUI.this, "Dieses Programm wurde im Rahmen von TechGI4-2013 erstellt von: \n\nJonathan Seilkopf \nAndreas Getzin \nMichael Kürbis", "Info", JOptionPane.INFORMATION_MESSAGE));
+        infoitem.addActionListener(e -> JOptionPane.showMessageDialog(SudokuGUI.this, "Sudokulöser 1.2\n\nDieses Programm wurde auf GitHub veröffentlicht:\nhttps://github.com/meekee7/SudokuSolverService", "Info", JOptionPane.INFORMATION_MESSAGE));
         infomenu.add(infoitem);
         menuBar.add(infomenu);
         this.setJMenuBar(menuBar);

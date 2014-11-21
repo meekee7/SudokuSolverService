@@ -8,7 +8,7 @@ import javax.xml.ws.Endpoint;
 import java.net.*;
 import java.util.Collection;
 import java.util.Enumeration;
-import java.util.LinkedList;
+import java.util.HashSet;
 
 /**
  * Created with IntelliJ IDEA.
@@ -70,14 +70,14 @@ public class SudokuServer implements SudokuService {
         else
             System.out.println("No port number specified, will use standard port 1337.");
 
-        Collection<URL> urls = new LinkedList<>();
+        Collection<URL> urls = new HashSet<>();
         try {                                         //Generate URLs for the service
             Enumeration<NetworkInterface> interfaces = NetworkInterface.getNetworkInterfaces();
             while (interfaces.hasMoreElements()) {
                 NetworkInterface ni = interfaces.nextElement();
-                Enumeration<InetAddress> adresses = ni.getInetAddresses();
-                while (adresses.hasMoreElements()) {
-                    InetAddress address = adresses.nextElement();
+                Enumeration<InetAddress> addresses = ni.getInetAddresses();
+                while (addresses.hasMoreElements()) {
+                    InetAddress address = addresses.nextElement();
                     URL url = new URL("http", address.getCanonicalHostName(), port, "/sudoku");
                     urls.add(url);
                     System.out.println();

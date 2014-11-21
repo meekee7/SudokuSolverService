@@ -2,10 +2,7 @@ package SudokuServer;
 
 import SudokuCore.Sudoku;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 import java.util.concurrent.CopyOnWriteArrayList;
 
 /**
@@ -13,7 +10,7 @@ import java.util.concurrent.CopyOnWriteArrayList;
  * User: Michael
  */
 public class SudokuSolver extends Sudoku {
-    private static final List<Integer> all = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9);
+    private static final List<Integer> all = Arrays.<Integer>asList(1, 2, 3, 4, 5, 6, 7, 8, 9);
     public static final int INVALID = -1;
 
     private class OptionField extends Field {
@@ -46,7 +43,7 @@ public class SudokuSolver extends Sudoku {
         @Override
         public void setValue(int value) throws IllegalArgumentException {
             super.setValue(value);
-            this.options = Collections.emptyList();
+            this.options = Collections.<Integer>emptyList();
         }
 
         /**
@@ -87,7 +84,7 @@ public class SudokuSolver extends Sudoku {
         public boolean setonoption() {
             if (this.options.size() == 1) {
                 this.value = this.options.get(0);
-                this.options = Collections.emptyList();
+                this.options = Collections.<Integer>emptyList();
                 return true;
             } else
                 return false;
@@ -111,7 +108,7 @@ public class SudokuSolver extends Sudoku {
      * Getter for a column of the sudoku.
      *
      * @param index Which column to take.
-     * @return The column of the sudoku.
+     * @return The requested column of the sudoku.
      */
     public OptionField[] getColumn(int index) {
         testindexvalidity(index);
@@ -125,7 +122,7 @@ public class SudokuSolver extends Sudoku {
      * Getter for a line of the sudoku.
      *
      * @param index Which line to take.
-     * @return The line of the sudoku.
+     * @return The requested line of the sudoku.
      */
     public OptionField[] getLine(int index) {
         testindexvalidity(index);
@@ -136,7 +133,7 @@ public class SudokuSolver extends Sudoku {
      * Getter for a house of the sudoku.
      *
      * @param index Which house to take.
-     * @return The house of the sudoku.
+     * @return The requested house of the sudoku.
      */
     public OptionField[] getHouse(int index) {
         testindexvalidity(index);
@@ -150,6 +147,13 @@ public class SudokuSolver extends Sudoku {
         return result;
     }
 
+    /**
+     * Getter for a house of the sudoku.
+     *
+     * @param x The x-coordinate of the house.
+     * @param y The y-coordinate of the house.
+     * @return The requested house of the sudoku.
+     */
     public OptionField[] getHouse(int x, int y) {
         testindexvalidity(x);
         testindexvalidity(y);
@@ -169,8 +173,48 @@ public class SudokuSolver extends Sudoku {
             throw new IllegalArgumentException("Index has to be between 1 and 9, inclusive, was: " + index);
     }
 
-
+    /**
+     * Solves the sudoku with backtracking.
+     *
+     * @return 0 if solved, -1 if there is no solution
+     */
     public int solve() {
+        if (this.solvelogically() < 0)
+            return -1;
+        Stack<SudokuSolver> stack = new Stack<>();
+        stack.push(this);
+        while (!stack.isEmpty()) {
+            SudokuSolver current = stack.pop();
+            int status = current.solvelogically();
+            if (status == 0) {
+                this.grid = current.grid;
+                return 0;
+            } else if (status > 0) {
+                int min = 10, minx = -1, miny = -1;
+                for (int i = 0; i < 9; i++)
+                    for (int j = 0; j < 9; j++)
+                        if (((OptionField) current.grid[i][j]).getOptions().size() < min && !((OptionField) current.grid[i][j]).getOptions().isEmpty()) {
+                            min = ((OptionField) current.grid[i][j]).getOptions().size();
+                            minx = i;
+                            miny = j;
+                        }
+                if (minx != -1)
+                    for (int i : ((OptionField) current.grid[minx][miny]).getOptions()) {
+                        SudokuSolver newsolver = new SudokuSolver(current);
+                        newsolver.grid[minx][miny].setValue(i);
+                        stack.push(newsolver);
+                    }
+            }
+        }
+        return -1;
+    }
+
+    /**
+     * Solve a sudoku.
+     *
+     * @return -1 if wrong, 0 if completely solved, the number of open fields if incompletely solved.
+     */
+    public int solvelogically() {
         int prevopen = 81;
         while (this.getStatus() < prevopen && this.getStatus() != INVALID) {
             prevopen = this.getStatus();
@@ -182,7 +226,7 @@ public class SudokuSolver extends Sudoku {
     }
 
     /**
-     * Solve a sudoku.
+     * Solve a sudoku with non-advanced techniques.
      *
      * @return -1 if wrong, 0 if completely solved, the number of open fields if incompletely solved.
      */
