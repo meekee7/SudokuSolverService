@@ -6,9 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="4d16b414-0070-4c8f-a233-c717e7923e67" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/de/mfwk/sudokuservice/client/SudokuClient.java" afterPath="$PROJECT_DIR$/src/main/java/de/mfwk/sudokuservice/client/SudokuClient.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/de/mfwk/sudokuservice/test/SudokuTest.java" afterPath="$PROJECT_DIR$/src/test/java/de/mfwk/sudokuservice/test/SudokuTest.java" />
     </list>
     <ignored path="WebService.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -94,8 +92,8 @@
       <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="233">
-              <caret line="69" column="37" lean-forward="false" selection-start-line="69" selection-start-column="33" selection-end-line="69" selection-end-column="37" />
+            <state relative-caret-position="401">
+              <caret line="56" column="41" lean-forward="false" selection-start-line="56" selection-start-column="41" selection-end-line="56" selection-end-column="41" />
               <folding />
             </state>
           </provider>
@@ -137,10 +135,8 @@
         <entry file="file://$PROJECT_DIR$/src/test/java/de/mfwk/sudokuservice/test/SudokuTest.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="1213">
-              <caret line="132" column="9" lean-forward="true" selection-start-line="132" selection-start-column="9" selection-end-line="132" selection-end-column="9" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+              <caret line="131" column="9" lean-forward="true" selection-start-line="131" selection-start-column="9" selection-end-line="131" selection-end-column="9" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -155,17 +151,17 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SudokuClient.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="SudokuClient.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/de/mfwk/sudokuservice/client/SudokuClient.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="166">
-              <caret line="36" column="55" lean-forward="false" selection-start-line="36" selection-start-column="55" selection-end-line="36" selection-end-column="55" />
+            <state relative-caret-position="135">
+              <caret line="154" column="27" lean-forward="true" selection-start-line="154" selection-start-column="27" selection-end-line="154" selection-end-column="27" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SudokuGUI.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="SudokuGUI.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/de/mfwk/sudokuservice/client/SudokuGUI.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="353">
@@ -181,6 +177,7 @@
     <findStrings>
       <find>solvevt</find>
       <find>url</find>
+      <find>ping</find>
     </findStrings>
   </component>
   <component name="FindManager">
@@ -209,10 +206,10 @@
         <option value="$PROJECT_DIR$/src/main/java/de/mfwk/sudokuservice/SudokuServer/SudokuSolver.java" />
         <option value="$PROJECT_DIR$/src/main/java/de/mfwk/sudokuservice/server/SudokuSolver.java" />
         <option value="$PROJECT_DIR$/src/main/java/de/mfwk/sudokuservice/server/SudokuServer.java" />
-        <option value="$PROJECT_DIR$/src/main/java/de/mfwk/sudokuservice/client/SudokuClient.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/test/java/de/mfwk/sudokuservice/test/SudokuTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/de/mfwk/sudokuservice/client/SudokuGUI.java" />
+        <option value="$PROJECT_DIR$/src/main/java/de/mfwk/sudokuservice/client/SudokuClient.java" />
       </list>
     </option>
   </component>
@@ -511,7 +508,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Maven.Maven Test">
+  <component name="RunManager" selected="Maven.Maven Run CMD">
     <configuration default="false" name="SudokuServer" type="Application" factoryName="Application" temporary="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
@@ -1232,7 +1229,7 @@
       <workItem from="1415967120058" duration="4254000" />
       <workItem from="1416049690667" duration="10687000" />
       <workItem from="1416573641833" duration="5336000" />
-      <workItem from="1493302427320" duration="9923000" />
+      <workItem from="1493302427320" duration="10218000" />
     </task>
     <task id="LOCAL-00001" summary="Server now trying to run on all available network interfaces">
       <created>1388917565018</created>
@@ -1346,7 +1343,14 @@
       <option name="project" value="LOCAL" />
       <updated>1493309576291</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="fix url in client">
+      <created>1493312636661</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1493312636661</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1370,7 +1374,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="100519000" />
+    <option name="totallyTimeSpent" value="100814000" />
   </component>
   <component name="TodoView" selected-index="0">
     <todo-panel id="selected-file">
@@ -1414,7 +1418,7 @@
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3286638" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3768116" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3768116" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32900432" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3286638" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27292112" sideWeight="0.5967742" order="0" side_tool="false" content_ui="combo" />
@@ -1504,7 +1508,8 @@
     <MESSAGE value="Upgrade to JUnit 5" />
     <MESSAGE value="Transition to Maven" />
     <MESSAGE value="Moved classes to new packages" />
-    <option name="LAST_COMMIT_MESSAGE" value="Moved classes to new packages" />
+    <MESSAGE value="fix url in client" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix url in client" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
@@ -1523,9 +1528,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="110" column="4" lean-forward="false" selection-start-line="110" selection-start-column="4" selection-end-line="110" selection-end-column="4" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1590,9 +1593,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="95" column="29" lean-forward="false" selection-start-line="95" selection-start-column="29" selection-end-line="95" selection-end-column="29" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1865,29 +1866,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/de/mfwk/sudokuservice/client/SudokuClient.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="166">
-          <caret line="36" column="55" lean-forward="false" selection-start-line="36" selection-start-column="55" selection-end-line="36" selection-end-column="55" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="233">
-          <caret line="69" column="37" lean-forward="false" selection-start-line="69" selection-start-column="33" selection-end-line="69" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/de/mfwk/sudokuservice/test/SudokuTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1213">
-          <caret line="132" column="9" lean-forward="true" selection-start-line="132" selection-start-column="9" selection-end-line="132" selection-end-column="9" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+          <caret line="131" column="9" lean-forward="true" selection-start-line="131" selection-start-column="9" selection-end-line="131" selection-end-column="9" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1895,6 +1878,22 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="353">
           <caret line="281" column="32" lean-forward="false" selection-start-line="281" selection-start-column="32" selection-end-line="281" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="401">
+          <caret line="56" column="41" lean-forward="false" selection-start-line="56" selection-start-column="41" selection-end-line="56" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/de/mfwk/sudokuservice/client/SudokuClient.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="154" column="27" lean-forward="true" selection-start-line="154" selection-start-column="27" selection-end-line="154" selection-end-column="27" />
           <folding />
         </state>
       </provider>

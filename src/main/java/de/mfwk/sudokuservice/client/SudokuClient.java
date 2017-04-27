@@ -44,7 +44,7 @@ public class SudokuClient {
      * @return The solved sudoku.
      */
     public Sudoku solverguessingrequest(Sudoku sudoku) {
-        return service.solveSudokuGuessing(sudoku);
+        return this.service.solveSudokuGuessing(sudoku);
     }
 
     /**
@@ -54,7 +54,7 @@ public class SudokuClient {
      * @return The solved sudoku.
      */
     public Sudoku solverequest(Sudoku sudoku) {
-        return service.solveSudoku(sudoku);
+        return this.service.solveSudoku(sudoku);
     }
 
     /**
@@ -64,7 +64,7 @@ public class SudokuClient {
      * @return -1 if invalid, 0 if complete, the number of open fields if incomplete but valid.
      */
     public int validaterequest(Sudoku sudoku) {
-        return service.validateSudoku(sudoku);
+        return this.service.validateSudoku(sudoku);
     }
 
     /**
@@ -74,7 +74,7 @@ public class SudokuClient {
      */
     public boolean pingrequest() {
         try {
-            return service.ping();
+            return this.service.ping();
         } catch (Exception e) {           //The ping fails when the server is not accessible
             return false;
         }
@@ -146,6 +146,23 @@ public class SudokuClient {
             port = 1337;
         }
 
+        SudokuClient client = null;
+        try {
+            client = new SudokuClient(hostname, port);
+        } catch (MalformedURLException e) {
+            System.err.println("Error: host name or port invalid.");
+            e.printStackTrace();
+            System.exit(1);
+        }
+
+        if (ping) {
+            if (client.pingrequest())
+                System.out.println("Ping successful, host connection could be established.");
+            else
+                System.out.println("Ping not successful, host connection could not be established.");
+            return;
+        }
+
         Sudoku sudoku = null;
         if (sudokufile != null)
             try {
@@ -163,22 +180,6 @@ public class SudokuClient {
             System.err.println("Error: no source file specified.");
             System.exit(1);
         }
-
-        SudokuClient client = null;
-        try {
-            client = new SudokuClient(hostname, port);
-        } catch (MalformedURLException e) {
-            System.err.println("Error: host name or port invalid.");
-            e.printStackTrace();
-            System.exit(1);
-        }
-
-
-        if (ping)
-            if (client.pingrequest())
-                System.out.println("Ping successful, host connection could be established.");
-            else
-                System.out.println("Ping not successful, host connection could not be established.");
 
         if (statusoption) {
             int result = client.validaterequest(sudoku);
