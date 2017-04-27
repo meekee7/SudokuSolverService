@@ -120,7 +120,6 @@ public class SudokuTest {
 
     @Test
     public void testhard() {
-//        fail("Failure");
         assertEquals(0, new SudokuSolver(new Sudoku(hardsudoku)).solve(), "Hardsudoku nicht korrekt gelöst");
     }
 
