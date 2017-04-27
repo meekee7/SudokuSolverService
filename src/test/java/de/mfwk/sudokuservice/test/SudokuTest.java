@@ -1,5 +1,7 @@
-import SudokuCore.Sudoku;
-import SudokuServer.SudokuSolver;
+package de.mfwk.sudokuservice.test;
+
+import de.mfwk.sudokuservice.core.Sudoku;
+import de.mfwk.sudokuservice.server.SudokuSolver;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
