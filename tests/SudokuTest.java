@@ -1,9 +1,9 @@
 import SudokuCore.Sudoku;
 import SudokuServer.SudokuSolver;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-import static org.junit.Assert.assertArrayEquals;
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
  * Created with IntelliJ IDEA.
@@ -87,7 +87,7 @@ public class SudokuTest {
     public void testgetLine() {
         SudokuSolver sudoku = new SudokuSolver(new Sudoku(easysudoku));
         for (int i = 0; i < 9; i++)
-            assertArrayEquals("Zeile " + (i + 1) + "nicht korrekt", easysudoku[i], Sudoku.fieldtoint(sudoku.getLine(i + 1)));
+            assertArrayEquals(easysudoku[i], Sudoku.fieldtoint(sudoku.getLine(i + 1)), "Zeile " + (i + 1) + "nicht korrekt");
     }
 
     @Test
@@ -98,36 +98,36 @@ public class SudokuTest {
                 transponded[i][j] = easysudoku[j][i];
         SudokuSolver sudoku = new SudokuSolver(new Sudoku(easysudoku));
         for (int i = 0; i < 9; i++)
-            assertArrayEquals("Spalte " + (i + 1) + " nicht korrekt", transponded[i], Sudoku.fieldtoint(sudoku.getColumn(i + 1)));
+            assertArrayEquals(transponded[i], Sudoku.fieldtoint(sudoku.getColumn(i + 1)), "Spalte " + (i + 1) + " nicht korrekt");
     }
 
     @Test
     public void testsimple() {
-        assertEquals("Simplesudoku nicht korrekt gelöst", 0, new SudokuSolver(new Sudoku(simplesudoku)).solve());
+        assertEquals(0, new SudokuSolver(new Sudoku(simplesudoku)).solve(), "Simplesudoku nicht korrekt gelöst");
     }
 
     @Test
     public void testeasy() {
-        assertEquals("Easysudoku nicht korrekt gelöst", 0, new SudokuSolver(new Sudoku(easysudoku)).solve());
+        assertEquals(0, new SudokuSolver(new Sudoku(easysudoku)).solve(), "Easysudoku nicht korrekt gelöst");
     }
 
     @Test
     public void testmedium() {
-        assertEquals("Mediumsudoku nicht korrekt gelöst", 0, new SudokuSolver(new Sudoku(mediumsudoku)).solve());
+        assertEquals(0, new SudokuSolver(new Sudoku(mediumsudoku)).solve(), "Mediumsudoku nicht korrekt gelöst");
     }
 
     @Test
     public void testhard() {
-        assertEquals("Hardsudoku nicht korrekt gelöst", 0, new SudokuSolver(new Sudoku(hardsudoku)).solve());
+        assertEquals(0, new SudokuSolver(new Sudoku(hardsudoku)).solve(), "Hardsudoku nicht korrekt gelöst");
     }
 
     @Test
     public void testdebug1() {
-        assertEquals("Debug1 nicht korrekt gelöst", 0, new SudokuSolver(new Sudoku(debug1sudoku)).solve());
+        assertEquals(0, new SudokuSolver(new Sudoku(debug1sudoku)).solve(), "Debug1 nicht korrekt gelöst");
     }
 
     @Test
     public void testdebug2() {
-        assertEquals("Debug2 nicht korrekt gelöst", 0, new SudokuSolver(new Sudoku(debug2sudoku)).solve());
+        assertEquals(0, new SudokuSolver(new Sudoku(debug2sudoku)).solve(), "Debug2 nicht korrekt gelöst");
     }
 }
