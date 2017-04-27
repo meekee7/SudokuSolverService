@@ -29,7 +29,7 @@
                 <version>1.5.0</version> <!--LATEST VERSION-->
                 <executions>
                     <execution>
-                        <id>clientgui</id>
+                        <id>client-gui</id>
                         <goals>
                             <goal>java</goal>
                         </goals>
@@ -38,12 +38,17 @@
                         </configuration>
                     </execution>
                     <execution>
-                        <id>clientcmd</id>
+                        <id>client-cmd</id>
                         <goals>
                             <goal>java</goal>
                         </goals>
                         <configuration>
                             <mainClass>de.mfwk.sudokuservice.client.SudokuClient</mainClass>
+                            <arguments>
+                                <argument>-ping</argument>
+                                <argument>-host</argument>
+                                <argument>127.0.0.1</argument>
+                            </arguments>
                         </configuration>
                     </execution>
                     <execution>
@@ -58,8 +63,12 @@
                 </executions>
             </plugin>
             <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>2.20</version>
+                <configuration>
+                    <argLine>-Xmx2048m</argLine>
+                </configuration>
                 <dependencies>
                     <dependency>
                         <groupId>org.junit.platform</groupId>

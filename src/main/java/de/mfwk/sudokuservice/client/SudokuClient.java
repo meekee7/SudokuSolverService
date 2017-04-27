@@ -34,7 +34,7 @@ public class SudokuClient {
         if (hostname.equals(SudokuClient.selfhosted))
             this.service = new SudokuServer();
         else
-            this.service = Service.create(new URL("http", hostname, port, "/sudoku"), new QName("http://de.mfwk.sudokuservice.server/", "SudokuServerService")).getPort(SudokuService.class);
+            this.service = Service.create(new URL("http", hostname, port, "/sudoku"), new QName("http://server.sudokuservice.mfwk.de/", "SudokuServerService")).getPort(SudokuService.class);
     }
 
     /**
