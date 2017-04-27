@@ -14,6 +14,53 @@ import java.util.*;
  */
 @WebService(endpointInterface = "de.mfwk.sudokuservice.core.SudokuService")
 public class SudokuServer implements SudokuService {
+
+    private List<Endpoint> endpoints;
+
+    public SudokuServer() {
+    }
+
+    public void start(int port) {
+        if (port <= 0)
+            System.out.println("No port specified, will use port 1337");
+        port = 1337;
+
+        Collection<URL> urls = new HashSet<>();
+        try {                                         //Generate URLs for the service
+            Enumeration<NetworkInterface> interfaces = NetworkInterface.getNetworkInterfaces();
+            while (interfaces.hasMoreElements()) {
+                NetworkInterface ni = interfaces.nextElement();
+                Enumeration<InetAddress> addresses = ni.getInetAddresses();
+                while (addresses.hasMoreElements()) {
+                    InetAddress address = addresses.nextElement();
+                    URL url = new URL("http", address.getCanonicalHostName(), port, "/sudoku");
+                    urls.add(url);
+                    System.out.println();
+                    System.out.println("Network interface " + ni.getName());
+                    System.out.println("Host name: " + address.getCanonicalHostName());
+                    System.out.println("Port: " + port);
+                    System.out.println("IP Address: " + address.getHostAddress());
+                    System.out.println("Complete URL: " + url);
+                }
+            }
+        } catch (MalformedURLException e) {
+            System.err.println("Error: could not create server configuration.");
+            System.exit(1);
+        } catch (SocketException e) {
+            System.err.println("Error: could not access network interfaces.");
+        }
+        System.out.println();
+        System.out.println("Sudoku web service started.");
+        System.out.println();
+        this.endpoints = new ArrayList<>(urls.size());
+        urls.forEach(url -> endpoints.add(Endpoint.publish(url.toString(), this))); //Start the service for the public host and localhost
+    }
+
+    public void shutdown() {
+        System.out.println("Server will shut down now.");
+        this.endpoints.forEach(Endpoint::stop);
+    }
+
     /**
      * Solves a sudoku, but also uses backtracking.
      *
@@ -22,7 +69,7 @@ public class SudokuServer implements SudokuService {
      */
     @Override
     public Sudoku solveSudokuGuessing(Sudoku sudoku) {
-        System.out.println("Sudoku solution requested.");
+        System.out.println("Sudoku solution with backtracking requested.");
         SudokuSolver solver = new SudokuSolver(sudoku);
         solver.solve();
         return solver;
@@ -81,43 +128,11 @@ public class SudokuServer implements SudokuService {
         else
             System.out.println("No port number specified, will use standard port 1337.");
 
-        Collection<URL> urls = new HashSet<>();
-        try {                                         //Generate URLs for the service
-            Enumeration<NetworkInterface> interfaces = NetworkInterface.getNetworkInterfaces();
-            while (interfaces.hasMoreElements()) {
-                NetworkInterface ni = interfaces.nextElement();
-                Enumeration<InetAddress> addresses = ni.getInetAddresses();
-                while (addresses.hasMoreElements()) {
-                    InetAddress address = addresses.nextElement();
-                    URL url = new URL("http", address.getCanonicalHostName(), port, "/sudoku");
-                    urls.add(url);
-                    System.out.println();
-                    System.out.println("Network interface " + ni.getName());
-                    System.out.println("Host name: " + address.getCanonicalHostName());
-                    System.out.println("Port: " + port);
-                    System.out.println("IP Address: " + address.getHostAddress());
-                    System.out.println("Complete URL: " + url);
-                }
-            }
-        } catch (MalformedURLException e) {
-            System.err.println("Error: could not create server configuration.");
-            System.exit(1);
-        } catch (SocketException e) {
-            System.err.println("Error: could not access network interfaces.");
-        }
 
-
-        SudokuServer server = new SudokuServer();                  //Start the service for the public host and localhost
-        List<Endpoint> endpoints = new ArrayList<>(urls.size());
-        urls.forEach(url -> endpoints.add(Endpoint.publish(url.toString(), server)));
-
-        System.out.println();
-        System.out.println("Sudoku web service started.");
+        SudokuServer server = new SudokuServer();
+        server.start(port);
         System.out.println("Use Ctrl + C to stop the server.");
-
-        Runtime.getRuntime().addShutdownHook(new Thread(() -> {
-            System.out.println("Server will shut down now.");
-            endpoints.forEach(Endpoint::stop);
-        }));
+        System.out.println();
+        Runtime.getRuntime().addShutdownHook(new Thread(server::shutdown));
     }
 }

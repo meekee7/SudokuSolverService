@@ -1,19 +1,10 @@
 package de.mfwk.sudokuservice.test;
 
-import de.mfwk.sudokuservice.core.Sudoku;
-import de.mfwk.sudokuservice.server.SudokuSolver;
-import org.junit.jupiter.api.Test;
-
-import static org.junit.jupiter.api.Assertions.assertArrayEquals;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-
 /**
- * Created with IntelliJ IDEA.
- * User: Michael
+ * Created by micha on 28.04.2017.
  */
-public class SudokuTest {
-
-    private static int[][] simplesudoku = {
+public class TestData {
+    public static int[][] simplesudoku = {
             {8, 9, 0, 2, 1, 0, 0, 7, 0},
             {6, 0, 0, 0, 0, 7, 0, 0, 0},
             {0, 2, 0, 8, 0, 6, 0, 0, 0},
@@ -25,7 +16,7 @@ public class SudokuTest {
             {3, 0, 0, 0, 0, 0, 7, 0, 0},
     };
 
-    private static int[][] easysudoku = {
+    public static int[][] easysudoku = {
             {0, 0, 0, 0, 0, 0, 3, 0, 0},
             {0, 0, 0, 0, 7, 1, 5, 0, 0},
             {0, 0, 2, 4, 0, 0, 0, 1, 8},
@@ -37,7 +28,7 @@ public class SudokuTest {
             {0, 0, 9, 0, 0, 0, 0, 0, 0},
     };
 
-    private static int[][] mediumsudoku = {
+    public static int[][] mediumsudoku = {
             {0, 0, 0, 0, 0, 0, 2, 0, 0},
             {0, 5, 8, 0, 0, 6, 0, 0, 0},
             {0, 0, 0, 3, 0, 0, 0, 8, 5},
@@ -49,7 +40,7 @@ public class SudokuTest {
             {0, 0, 9, 0, 0, 0, 0, 0, 0},
     };
 
-    private static int[][] hardsudoku = {
+    public static int[][] hardsudoku = {
             {0, 0, 0, 5, 0, 0, 0, 0, 0},
             {0, 0, 0, 0, 3, 0, 0, 9, 0},
             {0, 4, 0, 0, 0, 6, 5, 0, 0},
@@ -61,7 +52,7 @@ public class SudokuTest {
             {0, 1, 7, 3, 2, 0, 0, 0, 0},
     };
 
-    private static int[][] debug1sudoku = {
+    public static int[][] debug1sudoku = {
             {8, 0, 0, 1, 3, 0, 0, 0, 4},
             {0, 2, 0, 0, 0, 5, 0, 7, 0},
             {0, 0, 7, 0, 0, 0, 6, 0, 0},
@@ -73,7 +64,7 @@ public class SudokuTest {
             {6, 0, 0, 0, 1, 8, 0, 0, 9},
     };
 
-    private static int[][] debug2sudoku = {
+    public static int[][] debug2sudoku = {
             {4, 2, 6, 0, 0, 0, 0, 0, 8},
             {8, 1, 7, 5, 0, 0, 0, 9, 0},
             {9, 3, 5, 0, 2, 0, 4, 0, 0},
@@ -84,52 +75,4 @@ public class SudokuTest {
             {5, 6, 8, 0, 0, 7, 0, 3, 0},
             {1, 9, 3, 0, 0, 0, 0, 0, 5},
     };
-
-    @Test
-    public void testgetLine() {
-        SudokuSolver sudoku = new SudokuSolver(new Sudoku(easysudoku));
-        for (int i = 0; i < 9; i++)
-            assertArrayEquals(easysudoku[i], Sudoku.fieldtoint(sudoku.getLine(i + 1)), "Zeile " + (i + 1) + "nicht korrekt");
-    }
-
-    @Test
-    public void testgetColumn() {
-        int[][] transponded = new int[9][9];
-        for (int i = 0; i < 9; i++)
-            for (int j = 0; j < 9; j++)
-                transponded[i][j] = easysudoku[j][i];
-        SudokuSolver sudoku = new SudokuSolver(new Sudoku(easysudoku));
-        for (int i = 0; i < 9; i++)
-            assertArrayEquals(transponded[i], Sudoku.fieldtoint(sudoku.getColumn(i + 1)), "Spalte " + (i + 1) + " nicht korrekt");
-    }
-
-    @Test
-    public void testsimple() {
-        assertEquals(0, new SudokuSolver(new Sudoku(simplesudoku)).solve(), "Simplesudoku nicht korrekt gelöst");
-    }
-
-    @Test
-    public void testeasy() {
-        assertEquals(0, new SudokuSolver(new Sudoku(easysudoku)).solve(), "Easysudoku nicht korrekt gelöst");
-    }
-
-    @Test
-    public void testmedium() {
-        assertEquals(0, new SudokuSolver(new Sudoku(mediumsudoku)).solve(), "Mediumsudoku nicht korrekt gelöst");
-    }
-
-    @Test
-    public void testhard() {
-        assertEquals(0, new SudokuSolver(new Sudoku(hardsudoku)).solve(), "Hardsudoku nicht korrekt gelöst");
-    }
-
-    @Test
-    public void testdebug1() {
-        assertEquals(0, new SudokuSolver(new Sudoku(debug1sudoku)).solve(), "Debug1 nicht korrekt gelöst");
-    }
-
-    @Test
-    public void testdebug2() {
-        assertEquals(0, new SudokuSolver(new Sudoku(debug2sudoku)).solve(), "Debug2 nicht korrekt gelöst");
-    }
 }
