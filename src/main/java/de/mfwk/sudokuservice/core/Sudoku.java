@@ -7,7 +7,7 @@ import javax.xml.bind.annotation.XmlRootElement;
  * Created with IntelliJ IDEA.
  * User: Michael
  */
-@XmlRootElement
+@XmlRootElement(name = "Sudoku")
 public class Sudoku {
     protected class Field {
         protected int value;
