@@ -7,6 +7,9 @@ import javax.jws.WebService;
 import javax.xml.ws.Endpoint;
 import java.net.*;
 import java.util.*;
+import java.util.concurrent.locks.Condition;
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
 
 /**
  * Created with IntelliJ IDEA.
@@ -16,47 +19,65 @@ import java.util.*;
 public class SudokuServer implements SudokuService {
 
     private List<Endpoint> endpoints;
+    private Thread thread;
 
     public SudokuServer() {
     }
 
-    public void start(int port) {
-        if (port <= 0)
+    public void start(int portarg) {
+        if (portarg <= 0)
             System.out.println("No port specified, will use port 1337");
-        port = 1337;
+        final int port = portarg <= 0 ? 1337 : portarg;
 
-        Collection<URL> urls = new HashSet<>();
-        try {                                         //Generate URLs for the service
-            Enumeration<NetworkInterface> interfaces = NetworkInterface.getNetworkInterfaces();
-            while (interfaces.hasMoreElements()) {
-                NetworkInterface ni = interfaces.nextElement();
-                Enumeration<InetAddress> addresses = ni.getInetAddresses();
-                while (addresses.hasMoreElements()) {
-                    InetAddress address = addresses.nextElement();
-                    URL url = new URL("http", address.getCanonicalHostName(), port, "/sudoku");
-                    urls.add(url);
-                    System.out.println();
-                    System.out.println("Network interface " + ni.getName());
-                    System.out.println("Host name: " + address.getCanonicalHostName());
-                    System.out.println("Port: " + port);
-                    System.out.println("IP Address: " + address.getHostAddress());
-                    System.out.println("Complete URL: " + url);
+        if (this.thread != null)
+            throw new IllegalStateException("Error: server already running");
+
+        Lock lock = new ReentrantLock(true);
+        Condition ready = lock.newCondition();
+        this.thread = new Thread(() -> {
+            Collection<URL> urls = new HashSet<>();
+            try {                                         //Generate URLs for the service
+                Enumeration<NetworkInterface> interfaces = NetworkInterface.getNetworkInterfaces();
+                while (interfaces.hasMoreElements()) {
+                    NetworkInterface ni = interfaces.nextElement();
+                    Enumeration<InetAddress> addresses = ni.getInetAddresses();
+                    while (addresses.hasMoreElements()) {
+                        InetAddress address = addresses.nextElement();
+                        URL url = new URL("http", address.getCanonicalHostName(), port, "/sudoku");
+                        urls.add(url);
+                        System.out.println();
+                        System.out.println("Network interface " + ni.getName());
+                        System.out.println("Host name: " + address.getCanonicalHostName());
+                        System.out.println("Port: " + port);
+                        System.out.println("IP Address: " + address.getHostAddress());
+                        System.out.println("Complete URL: " + url);
+                    }
                 }
+            } catch (MalformedURLException e) {
+                System.err.println("Error: could not create server configuration.");
+                System.exit(1);
+            } catch (SocketException e) {
+                System.err.println("Error: could not access network interfaces.");
             }
-        } catch (MalformedURLException e) {
-            System.err.println("Error: could not create server configuration.");
-            System.exit(1);
-        } catch (SocketException e) {
-            System.err.println("Error: could not access network interfaces.");
-        }
+            this.endpoints = new ArrayList<>(urls.size());
+            urls.forEach(url -> this.endpoints.add(Endpoint.publish(url.toString(), this)));
+            lock.lock();
+            ready.signal();
+            lock.unlock();
+        }); //Start the service for the public host and localhost
+        this.thread.start();
+        lock.lock();
+        ready.awaitUninterruptibly();
+        lock.unlock();
         System.out.println();
         System.out.println("Sudoku web service started.");
         System.out.println();
-        this.endpoints = new ArrayList<>(urls.size());
-        urls.forEach(url -> endpoints.add(Endpoint.publish(url.toString(), this))); //Start the service for the public host and localhost
     }
 
     public void shutdown() {
+        if (this.thread == null)
+            throw new IllegalStateException("Error: Server is not running");
+
         System.out.println("Server will shut down now.");
         this.endpoints.forEach(Endpoint::stop);
     }
