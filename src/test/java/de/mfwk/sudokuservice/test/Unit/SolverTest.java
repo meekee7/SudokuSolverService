@@ -35,8 +35,13 @@ public class SolverTest {
 
     @Test
     public void testSolve() {
-        for (String s : TestData.solvable)
-            assertEquals(s + " nicht korrekt gelöst", 0, new SudokuSolver(new Sudoku(TestData.sudokus.get(s))).solvelogically());
+        for (String s : TestData.solvable) {
+            SudokuSolver solver = new SudokuSolver(new Sudoku(TestData.sudokus.get(s)));
+            solver.solvesimple();
+//            if (s.equals("medium"))
+//            solver.pointingpair();
+            assertEquals(s + " nicht korrekt gelöst: \n" + solver.toStringWithOptions(), 0, solver.getStatus());
+        }
     }
 
     @Test
@@ -52,11 +57,11 @@ public class SolverTest {
 
     @Test
     public void testValidateComplete() {
-
+        assertEquals("Completed sudoku not validated to 0", 0, new SudokuSolver(new Sudoku(TestData.sudokus.get("hardsolved"))).getStatus());
     }
 
     @Test
     public void testValidateInvalid() {
-
+//TODO
     }
 }

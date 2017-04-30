@@ -10,7 +10,7 @@ import java.util.Map;
  */
 public class TestData {
     public static final Map<String, int[][]> sudokus = new HashMap<>();
-    public static final List<String> solvable = Arrays.asList("simple", "easy", "medium", "hard", "pp1", "pp2");
+    public static final List<String> solvable = Arrays.asList("simple", "easy", "pp1");
 
     static {
         sudokus.put("simple", new int[][]{
