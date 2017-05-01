@@ -38,13 +38,11 @@ public class SolverTest {
         for (String s : TestData.solvable) {
             SudokuSolver solver = new SudokuSolver(new Sudoku(TestData.sudokus.get(s)));
             solver.solvesimple();
-//            if (s.equals("medium"))
-//            solver.pointingpair();
             assertEquals(s + " nicht korrekt gelöst: \n" + solver.toStringWithOptions(), 0, solver.getStatus());
         }
     }
 
-    @Test
+    @Test(timeout = 1000L)
     public void testSolveBT() {
         assertEquals("Backtracking-Sudoku nicht korrekt gelöst", 0, new SudokuSolver(new Sudoku(TestData.sudokus.get("amb"))).solve());
     }
@@ -62,6 +60,7 @@ public class SolverTest {
 
     @Test
     public void testValidateInvalid() {
-//TODO
+        assertEquals("Incomplete invalid not validated to -1", -1, new SudokuSolver(new Sudoku(TestData.sudokus.get("invalid1"))).getStatus());
+        assertEquals("Complete invalid not validated to -1", -1, new SudokuSolver(new Sudoku(TestData.sudokus.get("invalid2"))).getStatus());
     }
 }
