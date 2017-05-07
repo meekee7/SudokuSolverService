@@ -43,7 +43,7 @@ public class SudokuServer implements SudokuService {
                     Enumeration<InetAddress> addresses = ni.getInetAddresses();
                     while (addresses.hasMoreElements()) {
                         InetAddress address = addresses.nextElement();
-                        URL url = new URL("http", address.getCanonicalHostName(), port, "/sudoku");
+                        URL url = new URL("http", address.getCanonicalHostName(), port, "/SudokuService-1.0/services/sudoku");
                         urls.add(url);
                         System.out.println();
                         System.out.println("Network interface " + ni.getName());

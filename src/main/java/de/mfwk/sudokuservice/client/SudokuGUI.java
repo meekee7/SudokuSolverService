@@ -77,6 +77,7 @@ public class SudokuGUI extends JFrame {
     private final CustomTextfield[][] textgrid;
     private final JTextField hostfield;
     private final JTextField portfield;
+    private final JTextField subdirfield;
     private final JCheckBox btfield;
 
     /**
@@ -84,7 +85,7 @@ public class SudokuGUI extends JFrame {
      */
     private SudokuGUI() {
         this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        this.setSize(new Dimension(800, 500));
+        this.setSize(new Dimension(800, 600));
         this.setMinimumSize(new Dimension(500, 300));      //Basic window configuration
         this.setLocationRelativeTo(null);
         this.setTitle("Sudokulöser Client 1.2");
@@ -111,10 +112,11 @@ public class SudokuGUI extends JFrame {
 
         JPanel config = new JPanel(new GridBagLayout());       //The configuration panel
         GridBagConstraints constraints = new GridBagConstraints();
-        constraints.insets = new Insets(10, 5, 10, 5);
+        constraints.insets = new Insets(5, 5, 5, 5);
         constraints.anchor = GridBagConstraints.CENTER;
         this.hostfield = new JTextField(SudokuClient.selfhosted, 20);
         this.portfield = new JTextField(5);
+        this.subdirfield = new JTextField(SudokuClient.defaultsubdir, 20);
         constraints.gridx = 0;
         constraints.gridy = 0;
         config.add(new JLabel("Hostname: "), constraints);
@@ -125,6 +127,12 @@ public class SudokuGUI extends JFrame {
         config.add(new JLabel("Portnummer: "), constraints);
         constraints.gridx = 1;
         config.add(portfield, constraints);
+        constraints.gridx = 0;
+        constraints.gridy = 2;
+        config.add(new JLabel("Subdir: "), constraints);
+        constraints.gridx = 1;
+        config.add(this.subdirfield, constraints);
+
 
         this.btfield = new JCheckBox("Backtracking verwenden", true);
         JButton pingbutton = new JButton("Ping");
@@ -271,7 +279,8 @@ public class SudokuGUI extends JFrame {
         try {                                          //Configuration information from GUI
             String host = this.hostfield.getText();
             int port = host.equals(SudokuClient.selfhosted) ? 0 : Integer.parseInt(this.portfield.getText());
-            return new SudokuClient(host, port);
+            String subdir = this.subdirfield.getText();
+            return new SudokuClient(host, subdir, port);
         } catch (MalformedURLException e) {
             JOptionPane.showMessageDialog(this, "Bei dem aktuellen Vorgang ist ein Fehler aufgetreten. Die Hostname oder die Portangabe sind ungültig.", "Fehler", JOptionPane.ERROR_MESSAGE);
             return null;
@@ -280,6 +289,7 @@ public class SudokuGUI extends JFrame {
             return null;
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, "Bei dem aktuellen Vorgang ist ein Fehler aufgetreten. Der Webservice ist nicht verfügbar.", "Fehler", JOptionPane.ERROR_MESSAGE);
+            e.printStackTrace();
             return null;
         }
     }

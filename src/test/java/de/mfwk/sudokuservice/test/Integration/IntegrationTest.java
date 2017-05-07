@@ -25,7 +25,7 @@ public class IntegrationTest {
     public static void setup() throws MalformedURLException {
         server = new SudokuServer();
         server.start(1337);
-        client = new SudokuClient("localhost", 1337);
+        client = new SudokuClient("localhost", SudokuClient.defaultsubdir, 1337);
     }
 
     @AfterClass

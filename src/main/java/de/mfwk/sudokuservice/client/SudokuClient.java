@@ -20,6 +20,7 @@ import java.nio.file.Paths;
  */
 public class SudokuClient {
     public static final String selfhosted = "selfhosted"; //Use this as the hostname when you want to use an anonymous internal server
+    public static final String defaultsubdir = "SudokuService-1.0";
 
     private final SudokuService service;
 
@@ -30,12 +31,11 @@ public class SudokuClient {
      * @param port     The port of the service on the server.
      * @throws MalformedURLException Happens when the resulting URL is invalid.
      */
-    public SudokuClient(String hostname, int port) throws MalformedURLException {
+    public SudokuClient(String hostname, String subdir, int port) throws MalformedURLException {
         if (hostname.equals(SudokuClient.selfhosted))
             this.service = new SudokuServer();
         else
-//            this.service = Service.create(new URL("http", hostname, port, "/SudokuService-1.0/sudoku"), new QName("http://server.sudokuservice.mfwk.de/", "SudokuServerService")).getPort(SudokuService.class);
-            this.service = Service.create(new URL("http", hostname, port, "/sudoku"), new QName("http://server.sudokuservice.mfwk.de/", "SudokuServerService")).getPort(SudokuService.class);
+            this.service = Service.create(new URL("http", hostname, port, "/" + subdir + "/services/sudoku"), new QName("http://server.sudokuservice.mfwk.de/", "SudokuServerService")).getPort(SudokuService.class);
     }
 
     /**
@@ -88,6 +88,7 @@ public class SudokuClient {
      */
     public static void main(String[] args) {
         String hostname = null;
+        String subdir = null;
         int port = 0;
         Path sudokufile = null, outputfile = null;
         boolean solvebtoption = false, solveoption = false, statusoption = false, ping = false;
@@ -113,6 +114,12 @@ public class SudokuClient {
                         else
                             System.out.println("Error: host name not specified.");
                     break;
+                case "-subdir":
+                    if (subdir == null)
+                        if (i + 1 < args.length)
+                            subdir = args[i + 1];
+                        else
+                            System.out.println("Error: host subdir not specified");
                 case "-port":
                     if (port == 0)
                         if (i + 1 < args.length)
@@ -146,10 +153,14 @@ public class SudokuClient {
             System.out.println("Port unspecified, will use standard port 1337.");
             port = 1337;
         }
+        if (subdir == null) {
+            System.out.println("Subdir unspecified, will use default " + defaultsubdir);
+            subdir = defaultsubdir;
+        }
 
         SudokuClient client = null;
         try {
-            client = new SudokuClient(hostname, port);
+            client = new SudokuClient(hostname, subdir, port);
         } catch (MalformedURLException e) {
             System.err.println("Error: host name or port invalid.");
             e.printStackTrace();

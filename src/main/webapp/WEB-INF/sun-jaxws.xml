@@ -5,5 +5,5 @@
     <endpoint
             name='SudokuService'
             implementation='de.mfwk.sudokuservice.server.SudokuServer'
-            url-pattern='/services/sudokuservice'/>
+            url-pattern='/services/sudoku'/>
 </endpoints>
