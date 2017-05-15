@@ -63,4 +63,20 @@ public class SolverTest {
         assertEquals("Incomplete invalid not validated to -1", -1, new SudokuSolver(new Sudoku(TestData.sudokus.get("invalid1"))).getStatus());
         assertEquals("Complete invalid not validated to -1", -1, new SudokuSolver(new Sudoku(TestData.sudokus.get("invalid2"))).getStatus());
     }
+
+    /**
+     * This test is intentionally broken and unsolvable
+     */
+//    @Test
+    public void testMediumSudokuSolvable() {
+        assertEquals("Medium sudoku not solved correctly", 0, new SudokuSolver(new Sudoku(TestData.sudokus.get("medium"))).getStatus());
+    }
+
+    /**
+     * This test is intentionally broken and unsolvable
+     */
+//    @Test
+    public void testBTSudokuSolvabe() {
+        assertEquals("Ambiguous BT sudoku not solved correctly", 0, new SudokuSolver(new Sudoku(TestData.sudokus.get("amb"))).getStatus());
+    }
 }
