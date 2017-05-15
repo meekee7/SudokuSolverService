@@ -111,6 +111,32 @@
                 <artifactId>maven-war-plugin</artifactId>
                 <version>3.1.0</version>
             </plugin>
+
+            <plugin>
+                <groupId>io.fabric8</groupId>
+                <artifactId>docker-maven-plugin</artifactId>
+                <version>0.14.1</version>
+
+                <extensions>true</extensions> <!-- enables using 'docker' packaging above -->
+
+                <configuration>
+                    <images>
+                        <image>
+                            <name>mfwk/sudokuservice/server:${project.version}</name>
+                            <alias>mfwk-sudokuservice-server</alias>
+                            <build>
+                                <from>openjdk:latest</from>
+                                <assembly>
+                                    <descriptorRef>artifact</descriptorRef>
+                                </assembly>
+                                <cmd>java -cp maven/${project.name}-${project.version}.jar
+                                    de.mfwk.sudokuservice.server.SudokuServer
+                                </cmd>
+                            </build>
+                        </image>
+                    </images>
+                </configuration>
+            </plugin>
         </plugins>
     </build>
 
