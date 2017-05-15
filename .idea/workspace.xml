@@ -4,7 +4,7 @@
     <option name="ANALYZE_TEST_SOURCES" value="false" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4d16b414-0070-4c8f-a233-c717e7923e67" name="Default" comment="">
+    <list default="true" id="4d16b414-0070-4c8f-a233-c717e7923e67" name="Default" comment="docker intermediate">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
     </list>
@@ -195,8 +195,8 @@
       <file leaf-file-name="pom.xml" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="54">
-              <caret line="123" column="31" lean-forward="true" selection-start-line="123" selection-start-column="0" selection-end-line="124" selection-end-column="0" />
+            <state relative-caret-position="306">
+              <caret line="132" column="90" lean-forward="false" selection-start-line="132" selection-start-column="90" selection-end-line="132" selection-end-column="90" />
               <folding />
             </state>
           </provider>
@@ -1534,7 +1534,7 @@
       <workItem from="1493901997283" duration="1188000" />
       <workItem from="1494064280222" duration="17000" />
       <workItem from="1494099779469" duration="9217000" />
-      <workItem from="1494832897506" duration="5478000" />
+      <workItem from="1494832897506" duration="5854000" />
     </task>
     <task id="LOCAL-00001" summary="Server now trying to run on all available network interfaces">
       <created>1388917565018</created>
@@ -1732,7 +1732,14 @@
       <option name="project" value="LOCAL" />
       <updated>1494836645165</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="docker intermediate">
+      <created>1494853194877</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1494853194877</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1768,7 +1775,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="175238000" />
+    <option name="totallyTimeSpent" value="175614000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1887,7 +1894,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="SHOW_FILE_HISTORY_DETAILS" value="false" />
-    <MESSAGE value="No more com.sun-dependencies and client can start an internal server itself" />
     <MESSAGE value="Cleanup" />
     <MESSAGE value="Refactoring" />
     <MESSAGE value="Replaced workaround with fix" />
@@ -1912,7 +1918,8 @@
     <MESSAGE value="Add subdir specification to server url" />
     <MESSAGE value="Add unsolvable tests" />
     <MESSAGE value="typo" />
-    <option name="LAST_COMMIT_MESSAGE" value="typo" />
+    <MESSAGE value="docker intermediate" />
+    <option name="LAST_COMMIT_MESSAGE" value="docker intermediate" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
@@ -2268,8 +2275,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="54">
-          <caret line="123" column="31" lean-forward="true" selection-start-line="123" selection-start-column="0" selection-end-line="124" selection-end-column="0" />
+        <state relative-caret-position="306">
+          <caret line="132" column="90" lean-forward="false" selection-start-line="132" selection-start-column="90" selection-end-line="132" selection-end-column="90" />
           <folding />
         </state>
       </provider>
