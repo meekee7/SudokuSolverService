@@ -76,7 +76,7 @@ public class SolverTest {
      * This test is intentionally broken and unsolvable
      */
 //    @Test
-    public void testBTSudokuSolvabe() {
+    public void testBTSudokuSolvable() {
         assertEquals("Ambiguous BT sudoku not solved correctly", 0, new SudokuSolver(new Sudoku(TestData.sudokus.get("amb"))).getStatus());
     }
 }
