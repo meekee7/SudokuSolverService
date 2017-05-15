@@ -130,8 +130,7 @@
                                     <descriptorRef>artifact</descriptorRef>
                                 </assembly>
                                 <cmd>
-                                    java -cp maven/${project.name}-${project.version}.jar
-                                    de.mfwk.sudokuservice.server.SudokuServer
+                                    java -cp maven/${project.name}-${project.version}.jar de.mfwk.sudokuservice.server.SudokuServer
                                 </cmd>
                             </build>
                         </image>
