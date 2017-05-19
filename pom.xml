@@ -135,7 +135,7 @@
                                         <arg>-cp</arg>
                                         <arg>maven/${project.name}-${project.version}.jar</arg>
                                         <arg>de.mfwk.sudokuservice.server.SudokuServer</arg>
-                                        <arg>&amp;</arg>
+                                        <!--<arg>&amp;</arg>-->
                                     </exec>
                                 </entryPoint>
                                 <ports>
