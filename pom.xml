@@ -129,9 +129,23 @@
                                 <assembly>
                                     <descriptorRef>artifact</descriptorRef>
                                 </assembly>
+                                <entryPoint>
+                                    <exex>
+                                        <arg>java</arg>
+                                        <arg>-cp</arg>
+                                        <arg>maven/${project.name}-${project.version}.jar</arg>
+                                        <arg>de.mfwk.sudokuservice.server.SudokuServer</arg>
+                                        <arg>&amp;</arg>
+                                    </exex>
+                                </entryPoint>
+                                <ports>
+                                    <port>1337</port>
+                                </ports>
+                                <!--
                                 <cmd>
                                     java -cp maven/${project.name}-${project.version}.jar de.mfwk.sudokuservice.server.SudokuServer
                                 </cmd>
+                                -->
                             </build>
                         </image>
                     </images>
