@@ -5,8 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4d16b414-0070-4c8f-a233-c717e7923e67" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sonar-project.properties" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
     </list>
     <ignored path="WebService.iws" />
@@ -80,16 +80,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="SudokuSolver.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/de/mfwk/sudokuservice/server/SudokuSolver.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="12684">
-              <caret line="462" column="19" lean-forward="false" selection-start-line="462" selection-start-column="19" selection-end-line="462" selection-end-column="19" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="index.jsp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/index.jsp">
           <provider selected="true" editor-type-id="text-editor">
@@ -113,8 +103,8 @@
       <file leaf-file-name="IntegrationTest.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/java/de/mfwk/sudokuservice/test/Integration/IntegrationTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1120">
-              <caret line="54" column="19" lean-forward="false" selection-start-line="54" selection-start-column="19" selection-end-line="54" selection-end-column="19" />
+            <state relative-caret-position="168">
+              <caret line="18" column="3" lean-forward="false" selection-start-line="18" selection-start-column="3" selection-end-line="18" selection-end-column="3" />
               <folding />
             </state>
           </provider>
@@ -123,7 +113,7 @@
       <file leaf-file-name="SudokuServer.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/de/mfwk/sudokuservice/server/SudokuServer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="697">
+            <state relative-caret-position="264">
               <caret line="147" column="13" lean-forward="false" selection-start-line="147" selection-start-column="13" selection-end-line="147" selection-end-column="13" />
               <folding />
             </state>
@@ -143,7 +133,7 @@
       <file leaf-file-name="SolverTest.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/java/de/mfwk/sudokuservice/test/Unit/SolverTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1052">
+            <state relative-caret-position="252">
               <caret line="16" column="31" lean-forward="false" selection-start-line="16" selection-start-column="31" selection-end-line="16" selection-end-column="31" />
               <folding />
             </state>
@@ -154,8 +144,8 @@
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="483">
-                <caret line="28" column="0" lean-forward="true" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
+              <first_editor relative-caret-position="456">
+                <caret line="48" column="43" lean-forward="true" selection-start-line="48" selection-start-column="43" selection-end-line="48" selection-end-column="43" />
                 <folding />
               </first_editor>
               <second_editor />
@@ -166,8 +156,8 @@
       <file leaf-file-name="pom.xml" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="389">
-              <caret line="80" column="0" lean-forward="false" selection-start-line="80" selection-start-column="0" selection-end-line="80" selection-end-column="0" />
+            <state relative-caret-position="3892">
+              <caret line="139" column="45" lean-forward="true" selection-start-line="139" selection-start-column="45" selection-end-line="139" selection-end-column="45" />
               <folding />
             </state>
           </provider>
@@ -236,14 +226,14 @@
         <option value="$PROJECT_DIR$/src/test/java/de/mfwk/sudokuservice/test/TestData.java" />
         <option value="$PROJECT_DIR$/web/WEB-INF/sun-jaxws.xml" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/sun-jaxws.xml" />
-        <option value="$PROJECT_DIR$/src/test/java/de/mfwk/sudokuservice/test/Integration/IntegrationTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/de/mfwk/sudokuservice/client/SudokuGUI.java" />
         <option value="$PROJECT_DIR$/src/main/java/de/mfwk/sudokuservice/server/SudokuServer.java" />
         <option value="$PROJECT_DIR$/src/main/java/de/mfwk/sudokuservice/client/SudokuClient.java" />
-        <option value="$PROJECT_DIR$/README.md" />
-        <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/sonar-project.properties" />
         <option value="$PROJECT_DIR$/src/test/java/de/mfwk/sudokuservice/test/Unit/SolverTest.java" />
+        <option value="$PROJECT_DIR$/src/test/java/de/mfwk/sudokuservice/test/Integration/IntegrationTest.java" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
   </component>
@@ -257,8 +247,8 @@
     <treeState />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
+    <option name="x" value="1673" />
+    <option name="y" value="-1088" />
     <option name="width" value="1936" />
     <option name="height" value="1056" />
   </component>
@@ -331,6 +321,42 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="SudokuSolverService" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="WebService" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SudokuSolverService" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="target" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="WebService" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SudokuSolverService" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="target" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="generated" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="wsdl" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -609,7 +635,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.SudokuGUI">
+  <component name="RunManager" selected="Maven.Maven Full Build">
     <configuration default="false" name="SudokuTest" type="JUnit" factoryName="JUnit" temporary="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
@@ -1285,6 +1311,26 @@
       </MavenSettings>
       <method />
     </configuration>
+    <configuration default="false" name="SudokuGUI" type="Application" factoryName="Application" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="de.mfwk.sudokuservice.client.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="MAIN_CLASS_NAME" value="de.mfwk.sudokuservice.client.SudokuGUI" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="WebService" />
+      <envs />
+      <method />
+    </configuration>
     <configuration default="false" name="Maven Test" type="MavenRunConfiguration" factoryName="Maven">
       <MavenSettings>
         <option name="myGeneralSettings" />
@@ -1310,26 +1356,6 @@
       </MavenSettings>
       <method />
     </configuration>
-    <configuration default="false" name="SudokuGUI" type="Application" factoryName="Application" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="de.mfwk.sudokuservice.client.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="MAIN_CLASS_NAME" value="de.mfwk.sudokuservice.client.SudokuGUI" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="WebService" />
-      <envs />
-      <method />
-    </configuration>
     <configuration default="false" name="Maven Full Build" type="MavenRunConfiguration" factoryName="Maven">
       <MavenSettings>
         <option name="myGeneralSettings" />
@@ -1343,7 +1369,6 @@
               <list>
                 <option value="clean" />
                 <option value="compile" />
-                <option value="test" />
                 <option value="cxf-java2ws:java2ws" />
                 <option value="package" />
                 <option value="war:war" />
@@ -1366,8 +1391,8 @@
       <item index="3" class="java.lang.String" itemvalue="Maven.Maven Clean" />
       <item index="4" class="java.lang.String" itemvalue="Maven.Maven Pkg JAR" />
       <item index="5" class="java.lang.String" itemvalue="Maven.Maven Gen Schemas" />
-      <item index="6" class="java.lang.String" itemvalue="Maven.Maven Test" />
-      <item index="7" class="java.lang.String" itemvalue="Application.SudokuGUI" />
+      <item index="6" class="java.lang.String" itemvalue="Application.SudokuGUI" />
+      <item index="7" class="java.lang.String" itemvalue="Maven.Maven Test" />
       <item index="8" class="java.lang.String" itemvalue="Maven.Maven Full Build" />
       <item index="9" class="java.lang.String" itemvalue="JUnit.SudokuTest" />
       <item index="10" class="java.lang.String" itemvalue="JUnit.IntegrationTest" />
@@ -1468,7 +1493,7 @@
       <workItem from="1494832897506" duration="6519000" />
       <workItem from="1494931636323" duration="1238000" />
       <workItem from="1495187687275" duration="11889000" />
-      <workItem from="1495447723128" duration="4804000" />
+      <workItem from="1495447723128" duration="9165000" />
     </task>
     <task id="LOCAL-00001" summary="Server now trying to run on all available network interfaces">
       <created>1388917565018</created>
@@ -1715,7 +1740,14 @@
       <option name="project" value="LOCAL" />
       <updated>1495448963378</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="Reactivate missing unit tests">
+      <created>1495453050639</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1495453050639</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1751,7 +1783,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="194210000" />
+    <option name="totallyTimeSpent" value="198571000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1763,7 +1795,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="1673" y="-1088" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -1870,7 +1902,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="SHOW_FILE_HISTORY_DETAILS" value="false" />
-    <MESSAGE value="Refactoring of new toString-method" />
     <MESSAGE value="Documentation" />
     <MESSAGE value="pointingpair" />
     <MESSAGE value="pointingpair refactoring" />
@@ -1895,7 +1926,8 @@
     <MESSAGE value="typo" />
     <MESSAGE value="deactivate ampersand" />
     <MESSAGE value="Add Nexus for deploy, updated README.md" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add Nexus for deploy, updated README.md" />
+    <MESSAGE value="Reactivate missing unit tests" />
+    <option name="LAST_COMMIT_MESSAGE" value="Reactivate missing unit tests" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -2037,7 +2069,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/target/generated/wsdl/SudokuService.wsdl" />
     <entry file="file://$PROJECT_DIR$/target/generated-resources/schemagen/schema1.xsd" />
     <entry file="file://$PROJECT_DIR$/target/generated-resources/schemagen/schema2.xsd" />
     <entry file="file://$PROJECT_DIR$/src/main/java/de/mfwk/sudokuservice/pkg/PkgMain.java" />
@@ -2116,14 +2147,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/de/mfwk/sudokuservice/test/Integration/IntegrationTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1120">
-          <caret line="54" column="19" lean-forward="false" selection-start-line="54" selection-start-column="19" selection-end-line="54" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/index.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="280">
@@ -2140,14 +2163,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/de/mfwk/sudokuservice/server/SudokuServer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="697">
-          <caret line="147" column="13" lean-forward="false" selection-start-line="147" selection-start-column="13" selection-end-line="147" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/sonar-project.properties">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="112">
@@ -2158,8 +2173,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/de/mfwk/sudokuservice/test/Unit/SolverTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1052">
+        <state relative-caret-position="252">
           <caret line="16" column="31" lean-forward="false" selection-start-line="16" selection-start-column="31" selection-end-line="16" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/de/mfwk/sudokuservice/test/Integration/IntegrationTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="18" column="3" lean-forward="false" selection-start-line="18" selection-start-column="3" selection-end-line="18" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/target/generated/wsdl/SudokuService.wsdl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -2167,18 +2198,26 @@
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="483">
-            <caret line="28" column="0" lean-forward="true" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
+          <first_editor relative-caret-position="456">
+            <caret line="48" column="43" lean-forward="true" selection-start-line="48" selection-start-column="43" selection-end-line="48" selection-end-column="43" />
             <folding />
           </first_editor>
           <second_editor />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/de/mfwk/sudokuservice/server/SudokuServer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="147" column="13" lean-forward="false" selection-start-line="147" selection-start-column="13" selection-end-line="147" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="389">
-          <caret line="80" column="0" lean-forward="false" selection-start-line="80" selection-start-column="0" selection-end-line="80" selection-end-column="0" />
+        <state relative-caret-position="3892">
+          <caret line="139" column="45" lean-forward="true" selection-start-line="139" selection-start-column="45" selection-end-line="139" selection-end-column="45" />
           <folding />
         </state>
       </provider>

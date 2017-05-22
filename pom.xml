@@ -77,9 +77,8 @@
 
 <!--
                 <configuration>
+                    <excludes>IntegrationTest</excludes>
                     <test>SolverTest</test>
-
-                    <test>IntegrationTest</test>
 
                 </configuration>
 -->
@@ -91,7 +90,7 @@
                 <version>2.20</version>
                 <configuration>
                     <includes>
-                        <include>**/IntegrationTest.java</include>
+                        <include>IntegrationTest</include>
                     </includes>
                 </configuration>
 
@@ -139,6 +138,7 @@
                                         <!--<arg>&amp;</arg>-->
                                     </exec>
                                 </entryPoint>
+
                                 <ports>
                                     <port>1337</port>
                                 </ports>
@@ -164,6 +164,10 @@
     </dependencies>
 
     <distributionManagement>
+        <site>
+            <id>deployment</id>
+            <url>http://localhost:8081/nexus/content/repositories/releases/</url>
+        </site>
         <repository>
             <id>deployment</id>
             <name>Internal Releases</name>

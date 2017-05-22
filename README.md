@@ -12,15 +12,20 @@ Some of the defined Maven Goals are:
   - `exec:client-cmd` - start CMD client
   - `exec:server` - start server
   - `package` - create a .jar package containing both the client and the server
-  - `war:war` - create .war file to deploy on Glassfish/Tomcat/...
+  - `war:war` - create a .war file to deploy on Glassfish/Tomcat/...
+  - `cxf-java2ws:java2ws` - create WSDL file for the webservice that also contains the XSDs for the data exchange
   - `docker:build` - build a docker container
+  - `deploy` - deploy to a repository system like Nexus (localhost is preconfigured) 
 
-A regular build can be started like this:
+A regular build (including the tests) can be started like this:
 ```sh
 mvn compile package war:war
 ```
 This will also automatically run the unit tests and the integration test.
-
+To run only the tests execute
+```sh
+mvn test-compile test
+```
 # Execution
 The jar package has no default entry point. Three classes have main functions: 
   - de.mfwk.sudokuservice.server.SudokuServer
@@ -29,8 +34,9 @@ The jar package has no default entry point. Three classes have main functions:
 
 ## Server
 When started via the command line the server will publish itself on all network interfaces it can find.
-The default port for the server is 1337. You can specify a different port as the first cmd argument. All other ports are ignored.
-
+The default port for the server is 1337. You can specify a different port as the first cmd argument. All other arguments are ignored.
+### Deployment on Glassfish
+TODO write a guide for this
 ## CMD-Client
 Arguments for the cmd client:
   - -solvebt - Solve with backtracking
