@@ -6,14 +6,14 @@ All code is written in Java.
 # Build
 The Maven build system is used, but not mandatory.
 Some of the defined Maven Goals are:
-  - clean - delete all artifacts
-  - compile - compile the source code
-  - exec:client-gui - start GUI client
-  - exec:client-cmd - start CMD client
-  - exec:server - start server
-  - package - create a jar package containing the client and the server
-  - war:war - create .war file to deploy on Glassfish/Tomcat/...
-  - docker:build - build a docker container
+  - `clean` - delete all artifacts
+  - `compile` - compile the source code
+  - `exec:client-gui` - start GUI client
+  - `exec:client-cmd` - start CMD client
+  - `exec:server` - start server
+  - `package` - create a .jar package containing both the client and the server
+  - `war:war` - create .war file to deploy on Glassfish/Tomcat/...
+  - `docker:build` - build a docker container
 
 A regular build can be started like this:
 ```sh
@@ -28,7 +28,6 @@ The jar package has no default entry point. Three classes have main functions:
   - de.mfwk.sudokuservice.client.SudokuGUI
 
 ## Server
-The server 
 When started via the command line the server will publish itself on all network interfaces it can find.
 The default port for the server is 1337. You can specify a different port as the first cmd argument. All other ports are ignored.
 
@@ -44,7 +43,7 @@ Arguments for the cmd client:
   - -subdir X - Subdir of the service in the URI of the server
   - 
   - -file|-src X - Source file of the sudoku to solve or validate
-  - -out|-dest X - Target. 
+  - -out|-dest X - Target file for the solved sudoku. If no target file is specified the solved sudoku will be printed on the console 
 ## GUI-Client
 The GUI-Client ignores all command line arguments. The UI is self-explanatory. 
-"Selfhosted" is set as the default server which bypasses the regular server and runs the service locally.
+"selfhosted" is set as the default server which bypasses the regular server and runs the service locally.

@@ -142,7 +142,7 @@ public class SudokuClient {
                 case "-out":
                 case "-dest":
                     if (outputfile == null)
-                        if (i + 1 < args.length)
+                        if (i+ 1 < args.length)
                             outputfile = Paths.get(args[i + 1]);
                         else
                             System.out.println("Error: host name not specified.");
