@@ -60,7 +60,11 @@ public class SudokuServer implements SudokuService {
                 System.err.println("Error: could not access network interfaces.");
             }
             this.endpoints = new ArrayList<>(urls.size());
-            urls.forEach(url -> this.endpoints.add(Endpoint.publish(url.toString(), this)));
+            urls.stream()
+                    .map(Object::toString)
+                    .map(this::publishEndpoint)
+                    .forEach(this.endpoints::add);
+            //.forEach(url -> this.endpoints.add(Endpoint.publish(url.toString(), this)));
             lock.lock();
             ready.signal();
             lock.unlock();
@@ -72,6 +76,15 @@ public class SudokuServer implements SudokuService {
         System.out.println();
         System.out.println("Sudoku web service started.");
         System.out.println();
+    }
+
+    private Endpoint publishEndpoint(String url) {
+        try {
+            return Endpoint.publish(url, this);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
     }
 
     public void shutdown() {
