@@ -75,27 +75,27 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>2.20</version>
 
-<!--
-                <configuration>
-                    <excludes>IntegrationTest</excludes>
-                    <test>SolverTest</test>
+                <!--
+                                <configuration>
+                                    <excludes>IntegrationTest</excludes>
+                                    <test>SolverTest</test>
 
-                </configuration>
--->
+                                </configuration>
+                -->
             </plugin>
-<!--
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-failsafe-plugin</artifactId>
-                <version>2.20</version>
-                <configuration>
-                    <includes>
-                        <include>IntegrationTest</include>
-                    </includes>
-                </configuration>
+            <!--
+                        <plugin>
+                            <groupId>org.apache.maven.plugins</groupId>
+                            <artifactId>maven-failsafe-plugin</artifactId>
+                            <version>2.20</version>
+                            <configuration>
+                                <includes>
+                                    <include>IntegrationTest</include>
+                                </includes>
+                            </configuration>
 
-            </plugin>
--->
+                        </plugin>
+            -->
             <plugin>
                 <groupId>org.apache.cxf</groupId>
                 <artifactId>cxf-java2ws-plugin</artifactId>
@@ -135,19 +135,19 @@
                                         <arg>-cp</arg>
                                         <arg>maven/${project.name}-${project.version}.jar</arg>
                                         <arg>de.mfwk.sudokuservice.server.SudokuServer</arg>
-                                        <!--<arg>&amp;</arg>-->
                                     </exec>
                                 </entryPoint>
 
                                 <ports>
                                     <port>1337</port>
                                 </ports>
-                                <!--
-                                <cmd>
-                                    java -cp maven/${project.name}-${project.version}.jar de.mfwk.sudokuservice.server.SudokuServer
-                                </cmd>
-                                -->
                             </build>
+
+                            <run>
+                                <ports>
+                                    <port>1337:1337</port>
+                                </ports>
+                            </run>
                         </image>
                     </images>
                 </configuration>
