@@ -82,7 +82,7 @@ public class SudokuServer implements SudokuService {
         try {
             return Endpoint.publish(url, this);
         } catch (Exception e) {
-            e.printStackTrace();
+            new Exception("Trouble with URL " + url, e).printStackTrace();
             return null;
         }
     }
