@@ -63,6 +63,7 @@ public class SudokuServer implements SudokuService {
             urls.stream()
                     .map(Object::toString)
                     .map(this::publishEndpoint)
+                    .filter(Objects::nonNull)
                     .forEach(this.endpoints::add);
             //.forEach(url -> this.endpoints.add(Endpoint.publish(url.toString(), this)));
             lock.lock();
