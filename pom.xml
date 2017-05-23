@@ -6,9 +6,11 @@
 
     <groupId>de.mfwk</groupId>
     <artifactId>SudokuService</artifactId>
-    <version>1.0</version>
+    <version>1.0-${build.number}</version>
+
 
     <properties>
+        <build.number>SNAPSHOT</build.number>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
@@ -77,25 +79,12 @@
 
                 <!--
                                 <configuration>
-                                    <excludes>IntegrationTest</excludes>
                                     <test>SolverTest</test>
-
+                                    <test>IntegrationTest</test>
                                 </configuration>
                 -->
             </plugin>
-            <!--
-                        <plugin>
-                            <groupId>org.apache.maven.plugins</groupId>
-                            <artifactId>maven-failsafe-plugin</artifactId>
-                            <version>2.20</version>
-                            <configuration>
-                                <includes>
-                                    <include>IntegrationTest</include>
-                                </includes>
-                            </configuration>
 
-                        </plugin>
-            -->
             <plugin>
                 <groupId>org.apache.cxf</groupId>
                 <artifactId>cxf-java2ws-plugin</artifactId>
@@ -137,7 +126,6 @@
                                         <arg>de.mfwk.sudokuservice.server.SudokuServer</arg>
                                     </exec>
                                 </entryPoint>
-
                                 <ports>
                                     <port>1337</port>
                                 </ports>
@@ -163,16 +151,17 @@
         </dependency>
     </dependencies>
 
+    <!--
     <distributionManagement>
         <site>
             <id>deployment</id>
-            <url>http://localhost:8081/nexus/content/repositories/releases/</url>
+            <url>http://10.200.1.18:8081/repository/releases/</url>
         </site>
         <repository>
             <id>deployment</id>
             <name>Internal Releases</name>
-            <url>http://localhost:8081/nexus/content/repositories/releases/</url>
+            <url>http://10.200.1.18:8081/repository/releases/</url>
         </repository>
     </distributionManagement>
-
+    -->
 </project>
