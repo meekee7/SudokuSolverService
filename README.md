@@ -14,10 +14,10 @@ Some of the defined Maven Goals are:
   - `package` - create a .jar package containing both the client and the server
   - `war:war` - create a .war file to deploy on Glassfish/Tomcat/...
   - `cxf-java2ws:java2ws` - create WSDL file for the webservice that also contains the XSDs for the data exchange
-  - `docker:build` - build a docker container
+  - `docker:build` - build a docker container which would run the standalone server
   - `docker:start` - start the built docker container
   - `docker:stop` - stop the started docker container  
-  - `deploy` - deploy to a repository system like Nexus (localhost is preconfigured) 
+  - `deploy` - deploy to a repository system like Nexus (remember to specify the repository server in the `pom.xml` file)
 
 A regular build (including the tests) can be started like this:
 ```sh
