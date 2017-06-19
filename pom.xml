@@ -6,11 +6,12 @@
 
     <groupId>de.mfwk</groupId>
     <artifactId>SudokuService</artifactId>
-    <version>1.0-${build.number}</version>
+    <version>1.0</version>
+    <!--<version>1.0-${build.number}</version>-->
 
 
     <properties>
-        <build.number>SNAPSHOT</build.number>
+        <!--<build.number>SNAPSHOT</build.number>-->
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
@@ -137,6 +138,37 @@
                                 </ports>
                             </run>
                         </image>
+                        <image>
+                            <name>mfwk/sudokuservice/serverGF:${project.version}</name>
+                            <alias>mfwk-sudokuservice-glassfish</alias>
+                            <build>
+                                <from>openjdk:latest</from>
+                                <assembly>
+                                    <descriptorRef>artifact</descriptorRef>
+                                </assembly>
+                                <entryPoint>
+                                    <exec>
+                                        <arg>java</arg>
+                                        <arg>-cp</arg>
+                                        <arg>maven/${project.name}-${project.version}.jar</arg>
+                                        <arg>de.mfwk.sudokuservice.server.SudokuServer</arg>
+                                    </exec>
+                                </entryPoint>
+                                <ports>
+                                    <port>4848</port>
+                                    <port>8080</port>
+                                    <port>8181</port>
+                                </ports>
+                            </build>
+
+                            <run>
+                                <ports>
+                                    <port>4848:4848</port>
+                                    <port>8080:8080</port>
+                                    <port>8181:8181</port>
+                                </ports>
+                            </run>
+                        </image>
                     </images>
                 </configuration>
             </plugin>
@@ -151,17 +183,4 @@
         </dependency>
     </dependencies>
 
-    <!--
-    <distributionManagement>
-        <site>
-            <id>deployment</id>
-            <url>http://10.200.1.18:8081/repository/releases/</url>
-        </site>
-        <repository>
-            <id>deployment</id>
-            <name>Internal Releases</name>
-            <url>http://10.200.1.18:8081/repository/releases/</url>
-        </repository>
-    </distributionManagement>
-    -->
 </project>

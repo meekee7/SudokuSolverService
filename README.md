@@ -2,7 +2,6 @@
 
 This project provides a web service that is capable of validating and solving sudoku puzzles.
 All code is written in Java.
-
 # Build
 The Maven build system is used, but not mandatory.
 Some of the defined Maven Goals are:
@@ -38,7 +37,21 @@ The jar package has no default entry point. Three classes have main functions:
 When started via the command line the server will publish itself on all network interfaces it can find.
 The default port for the server is 1337. You can specify a different port as the first cmd argument. All other arguments are ignored.
 ### Deployment on Glassfish
-TODO write a guide for this
+Start the GlassFish server with
+```sh
+asadmin start-domain
+```
+Now deploy the service either through the GlassFish admin console or with the command
+```sh
+asadmin deploy PATHTOWARFILE/WARFILENAME.war
+```
+After this deployment the sudoku server will be accessible under the URL `http://SERVERNAME:8080/WARFILENAME`
+
+Stop the server with
+```sh
+asadmin stop-domain
+```
+
 ## CMD-Client
 Arguments for the cmd client:
   - -solvebt - Solve with backtracking
